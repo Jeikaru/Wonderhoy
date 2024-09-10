@@ -587,9 +587,9 @@ Upper.Size = UDim2.new(0, 600, 0, 900)
 Upper.ZIndex = 2
 
 UIListLayout.Parent = Upper
-UIListLayout.FillDirection = Enum.FillDirection.Vertical  -- Change to Vertical
+UIListLayout.FillDirection = Enum.FillDirection.Vertical
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
 local Container = Instance.new("Frame")
 Container.Name = "Container"
