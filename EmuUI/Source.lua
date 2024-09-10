@@ -610,7 +610,7 @@ DOWNER.Position = UDim2.new(0, 0, 0.943463266, 0)
 DOWNER.Size = UDim2.new(0, 600, 0, 23)
 DOWNER.ZIndex = 2
 
-WEBSITE.Name = "WEBSITE"
+WEBSITE.Name = "Discord"
 WEBSITE.Parent = DOWNER
 WEBSITE.AnchorPoint = Vector2.new(0.5, 0.5)
 WEBSITE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -620,7 +620,7 @@ WEBSITE.Position = UDim2.new(0.177174687, 0, 0.499190629, 0)
 WEBSITE.Size = UDim2.new(0, 197, 0, 23)
 WEBSITE.ZIndex = 3
 WEBSITE.Font = Enum.Font.ArialBold
-WEBSITE.Text = "NerdsInc.gq" 
+WEBSITE.Text = "UI Maker Discord: https://discord.gg/5DN8gzm34B"
 WEBSITE.TextColor3 = Color3.fromRGB(199, 199, 199)
 WEBSITE.TextSize = 14.000
 WEBSITE.TextXAlignment = Enum.TextXAlignment.Left
@@ -659,7 +659,7 @@ UPPERLABEL.Position = UDim2.new(0.906523705, 0, 0.0267967135, 0)
 UPPERLABEL.Size = UDim2.new(0, 84, 0, 23)
 UPPERLABEL.ZIndex = 3
 UPPERLABEL.Font = Enum.Font.SourceSansSemibold
-UPPERLABEL.Text = "Not loaded."
+UPPERLABEL.Text = "GUI By Jeikaru"
 UPPERLABEL.TextColor3 = Color3.fromRGB(199, 199, 199)
 UPPERLABEL.TextSize = 17.000
 UPPERLABEL.TextXAlignment = Enum.TextXAlignment.Right
@@ -675,9 +675,6 @@ limit1.ZIndex = 5
 
 
 repeat wait() until game.Players.LocalPlayer
-
-
-
 
 local library = {};
 library.sections = {};
@@ -696,7 +693,6 @@ local tweenInfo = TweenInfo.new(
 	Enum.EasingStyle.Linear,
 	Enum.EasingDirection.Out
 )
-
 
 function AddRipple(button,ael,ayo)
 	ayo = ayo or Color3.fromRGB(56, 56, 56)
@@ -819,7 +815,6 @@ local function getsize(frame)
 	end
 	return size
 end
-library.fps = ''
 
 local s,e = pcall(function()
 	local k = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
@@ -937,7 +932,7 @@ end
 
 function library:AddWindow(text)
 	local sec = {}
-	text = text or 'Not Def'
+	text=text or 'Not Def'
 
 	local HOLDER = Instance.new("ScrollingFrame")
 	local _LEFT = Instance.new("Frame")
@@ -952,52 +947,54 @@ function library:AddWindow(text)
 	TEMPLATE_TEXT.BackgroundTransparency = 1.000
 	TEMPLATE_TEXT.BorderSizePixel = 0
 	TEMPLATE_TEXT.Position = UDim2.new(0, 0, 0.281214178, 0)
-	TEMPLATE_TEXT.Size = UDim2.new(0, 50, 0, 13)
+	TEMPLATE_TEXT.Size = UDim2.new(0, getsize(text), 0, 13) -- Assuming getsize() is defined elsewhere
 	TEMPLATE_TEXT.ZIndex = 3
 	TEMPLATE_TEXT.Font = Enum.Font.SourceSansSemibold
 	TEMPLATE_TEXT.Text = text
 	TEMPLATE_TEXT.TextColor3 = Color3.fromRGB(138, 138, 138)
 	TEMPLATE_TEXT.TextSize = 16.000
-
+	
 	HOLDER.Name = text
 	HOLDER.Parent = limit1
 	HOLDER.Active = true
-	HOLDER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	HOLDER.BackgroundTransparency = 1.000
+	HOLDER.BackgroundColor3 = Color3.fromRGB(25, 25, 25) -- Dark background for visibility
+	HOLDER.BackgroundTransparency = 0.1
 	HOLDER.BorderSizePixel = 0
-	HOLDER.ClipsDescendants = false
-	HOLDER.Position = UDim2.new(0, 0, 0, 0)
-	HOLDER.Size = UDim2.new(0, 100, 1, 0)
-	HOLDER.Visible = true
-	HOLDER.ScrollBarThickness = 5
+	HOLDER.Position = UDim2.new(0, 10, 0.5, -180) -- Side position, centered vertically
+	HOLDER.Size = UDim2.new(0, 260, 0, 360) -- Vertical, full height
+	HOLDER.Visible = false
+	HOLDER.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
+	HOLDER.CanvasSize = UDim2.new(0, 0, 0, 0)
+	HOLDER.ScrollBarThickness = 0
+	HOLDER.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 
 	_LEFT.Name = "_LEFT"
 	_LEFT.Parent = HOLDER
-	_LEFT.AnchorPoint = Vector2.new(0, 0)
+	_LEFT.AnchorPoint = Vector2.new(0.5, 0.5)
 	_LEFT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	_LEFT.BackgroundTransparency = 1.000
 	_LEFT.BorderSizePixel = 0
-	_LEFT.Position = UDim2.new(0, 0, 0, 0)
-	_LEFT.Size = UDim2.new(0.5, 0, 1, 0)
+	_LEFT.Position = UDim2.new(0.249334633, 0, 0.508299172, 0)
+	_LEFT.Size = UDim2.new(0.5, 0, 0.972153783, 0)
 	_LEFT.ZIndex = 3
 	_LEFT.ClipsDescendants = true
-
-	_RIGHT.Name = "_RIGHT"
-	_RIGHT.Parent = HOLDER
-	_RIGHT.AnchorPoint = Vector2.new(0.5, 0)
-	_RIGHT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	_RIGHT.BackgroundTransparency = 1.000
-	_RIGHT.BorderSizePixel = 0
-	_RIGHT.Position = UDim2.new(0.5, 0, 0, 0)
-	_RIGHT.Size = UDim2.new(0.5, 0, 1, 0)
-	_RIGHT.ZIndex = 3
-	_RIGHT.ClipsDescendants = true
 
 	LUIL.Name = "LUIL"
 	LUIL.Parent = _LEFT
 	LUIL.HorizontalAlignment = Enum.HorizontalAlignment.Center
 	LUIL.SortOrder = Enum.SortOrder.LayoutOrder
 	LUIL.Padding = UDim.new(0, 5)
+
+	_RIGHT.Name = "_RIGHT"
+	_RIGHT.Parent = HOLDER
+	_RIGHT.AnchorPoint = Vector2.new(0.5, 0.5)   
+	_RIGHT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	_RIGHT.BackgroundTransparency = 1.000
+	_RIGHT.BorderSizePixel = 0
+	_RIGHT.Position = UDim2.new(0.749334514, 0, 0.508299172, 0)
+	_RIGHT.Size = UDim2.new(0.5, 0, 0.972153783, 0)
+	_RIGHT.ZIndex = 3
+	_RIGHT.ClipsDescendants = true
 
 	RUIL.Name = "RUIL"
 	RUIL.Parent = _RIGHT
@@ -1023,7 +1020,7 @@ function library:AddWindow(text)
 	end)
 
 	fghk.Name = "fghk"
-	fghk.Parent =HOLDER
+	fghk.Parent = HOLDER
 	fghk.FillDirection = Enum.FillDirection.Horizontal
 	fghk.SortOrder = Enum.SortOrder.LayoutOrder
 	local function getlarger(num)
@@ -2264,24 +2261,6 @@ end
 
 draggable(MAIN)
 
-spawn(function()
-	local TimeFunction = RunService:IsRunning() and time or os.clock
-	local LastIteration, Start
-	local FrameUpdateTable = {}
-	local function HeartbeatUpdate()
-		LastIteration = TimeFunction()
-		for Index = #FrameUpdateTable, 1, -1 do
-			FrameUpdateTable[Index + 1] = FrameUpdateTable[Index] >= LastIteration - 1 and FrameUpdateTable[Index] or nil
-		end
-
-		FrameUpdateTable[1] = LastIteration
-		library.fps = tostring(math.floor(TimeFunction() - Start >= 1 and #FrameUpdateTable or #FrameUpdateTable / (TimeFunction() - Start))) .. " FPS"
-		UPPERLABEL.Text = library.fps
-	end
-
-	Start = TimeFunction()
-	RunService.Heartbeat:Connect(HeartbeatUpdate)
-end)
-library.GUI = EmuUI
+library.GUI = EmuUI 
 
 return library
