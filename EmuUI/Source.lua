@@ -620,7 +620,7 @@ WEBSITE.Position = UDim2.new(0.177174687, 0, 0.499190629, 0)
 WEBSITE.Size = UDim2.new(0, 197, 0, 23)
 WEBSITE.ZIndex = 3
 WEBSITE.Font = Enum.Font.ArialBold
-WEBSITE.Text = "UI Maker Discord: https://discord.gg/5DN8gzm34B"
+WEBSITE.Text = "UI Maker Discord: https://discord.gg/5DN8gzm34B" 
 WEBSITE.TextColor3 = Color3.fromRGB(199, 199, 199)
 WEBSITE.TextSize = 14.000
 WEBSITE.TextXAlignment = Enum.TextXAlignment.Left
@@ -947,25 +947,28 @@ function library:AddWindow(text)
 	TEMPLATE_TEXT.BackgroundTransparency = 1.000
 	TEMPLATE_TEXT.BorderSizePixel = 0
 	TEMPLATE_TEXT.Position = UDim2.new(0, 0, 0.281214178, 0)
-	TEMPLATE_TEXT.Size = UDim2.new(0, getsize(text), 0, 13) -- Assuming getsize() is defined elsewhere
+	TEMPLATE_TEXT.Size = UDim2.new(0, 50, 0, 13)
 	TEMPLATE_TEXT.ZIndex = 3
 	TEMPLATE_TEXT.Font = Enum.Font.SourceSansSemibold
 	TEMPLATE_TEXT.Text = text
 	TEMPLATE_TEXT.TextColor3 = Color3.fromRGB(138, 138, 138)
 	TEMPLATE_TEXT.TextSize = 16.000
-	
+	TEMPLATE_TEXT.Size = UDim2.new(0,getsize(text),0,13)
+
+
 	HOLDER.Name = text
 	HOLDER.Parent = limit1
 	HOLDER.Active = true
-	HOLDER.BackgroundColor3 = Color3.fromRGB(25, 25, 25) -- Dark background for visibility
-	HOLDER.BackgroundTransparency = 0.1
+	HOLDER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	HOLDER.BackgroundTransparency = 1.000
 	HOLDER.BorderSizePixel = 0
-	HOLDER.Position = UDim2.new(0, 10, 0.5, -180) -- Side position, centered vertically
-	HOLDER.Size = UDim2.new(0, 260, 0, 360) -- Vertical, full height
+	HOLDER.ClipsDescendants = false
+	HOLDER.Position = UDim2.new(0,0,0.019,0)
 	HOLDER.Visible = false
+	HOLDER.Size = UDim2.new(0, 588, 0, 359)
 	HOLDER.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 	HOLDER.CanvasSize = UDim2.new(0, 0, 0, 0)
-	HOLDER.ScrollBarThickness = 0
+	HOLDER.ScrollBarThickness = 5
 	HOLDER.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
 
 	_LEFT.Name = "_LEFT"
@@ -1018,7 +1021,7 @@ function library:AddWindow(text)
 		end
 		HOLDER.Visible = true
 	end)
-
+	
 	fghk.Name = "fghk"
 	fghk.Parent = HOLDER
 	fghk.FillDirection = Enum.FillDirection.Horizontal
