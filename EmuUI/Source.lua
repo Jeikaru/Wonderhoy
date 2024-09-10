@@ -582,9 +582,9 @@ Upper.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Upper.BackgroundTransparency = 1.000
 Upper.BorderColor3 = Color3.fromRGB(91, 133, 197)
 Upper.BorderSizePixel = 0
+Upper.Position = UDim2.new(0, 0, 0, 0)
 Upper.Size = UDim2.new(0, 600, 0, 23)
 Upper.ZIndex = 2
-
 
 UIListLayout.Parent = Upper
 UIListLayout.FillDirection = Enum.FillDirection.Horizontal
@@ -1021,7 +1021,7 @@ function library:AddWindow(text)
 		end
 		HOLDER.Visible = true
 	end)
-	
+
 	fghk.Name = "fghk"
 	fghk.Parent = HOLDER
 	fghk.FillDirection = Enum.FillDirection.Horizontal
