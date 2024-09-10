@@ -586,7 +586,7 @@ Upper.Size = UDim2.new(0, 600, 0, 23)
 Upper.ZIndex = 2
 
 UIListLayout.Parent = Upper
-UIListLayout.FillDirection = Enum.FillDirection.Vertical
+UIListLayout.FillDirection = Enum.FillDirection.Horizontal
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
