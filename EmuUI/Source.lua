@@ -586,7 +586,8 @@ Upper.Size = UDim2.new(0, 600, 0, 23)
 Upper.ZIndex = 2
 
 UIListLayout.Parent = Upper
-UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout.FillDirection = Enum.FillDirection.Vertical
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
 
@@ -912,9 +913,9 @@ function library:Init(name)
     for i,v in pairs(Upper:GetChildren()) do
         if v:IsA('TextButton') then
             if v.Name == name then
-                TweenService:Create(v , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(210, 210, 210)}):Play()	
+                TweenService:Create(v , TweenInfo.new(1, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(210, 210, 210)}):Play()	
             else
-                TweenService:Create(v , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(138, 138, 138)}):Play()	
+                TweenService:Create(v , TweenInfo.new(1, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(138, 138, 138)}):Play()	
             end
         end
     end
