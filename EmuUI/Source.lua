@@ -1,4 +1,3 @@
-
 local EmuUI = Instance.new("ScreenGui")
 local TweenService = game:GetService('TweenService');
 local uis = game:GetService("UserInputService")
