@@ -583,13 +583,26 @@ Upper.BackgroundTransparency = 1.000
 Upper.BorderColor3 = Color3.fromRGB(91, 133, 197)
 Upper.BorderSizePixel = 0
 Upper.Position = UDim2.new(0, 0, 0, 0)
-Upper.Size = UDim2.new(0, 600, 0, 23)
+Upper.Size = UDim2.new(0, 600, 0, 900)
 Upper.ZIndex = 2
 
 UIListLayout.Parent = Upper
-UIListLayout.FillDirection = Enum.FillDirection.Horizontal
+UIListLayout.FillDirection = Enum.FillDirection.Vertical  -- Change to Vertical
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Top
+
+local Container = Instance.new("Frame")
+Container.Name = "Container"
+Container.Parent = Upper
+Container.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Container.BackgroundTransparency = 1.000
+Container.BorderColor3 = Color3.fromRGB(91, 133, 197)
+Container.BorderSizePixel = 0
+Container.Position = UDim2.new(0, 0, 0, 0)
+Container.Size = UDim2.new(0, 600, 0, 900)  -- Size as needed, adjust based on content
+Container.ZIndex = 1
+
+UIListLayout.Parent = Container
 
 linedecoupper.Name = "linedecoupper"
 linedecoupper.Parent = MAIN
