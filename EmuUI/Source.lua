@@ -1,2269 +1,1790 @@
-local EmuUI = Instance.new("ScreenGui")
-local TweenService = game:GetService('TweenService');
-local uis = game:GetService("UserInputService")
-local RunService = game:GetService("RunService")
+-- Instances: 147 | Scripts: 0 | Modules: 1
+local DRR = {};
 
-local function createInstance(class, props)
-	local inst = Instance.new(class)
-	for i, v in pairs(props) do
-		inst[i] = v
-	end
+-- DrRay
+DRR["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
+DRR["1"]["IgnoreGuiInset"] = true;
+DRR["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+DRR["1"]["Name"] = [[DrRay]];
+DRR["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
-	return inst
+-- DrRay.TopBar
+DRR["2"] = Instance.new("Frame", DRR["1"]);
+DRR["2"]["BorderSizePixel"] = 0;
+DRR["2"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["2"]["LayoutOrder"] = 2;
+DRR["2"]["Size"] = UDim2.new(0.5404488444328308, 0, 0.1739015281200409, 0);
+DRR["2"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["2"]["Position"] = UDim2.new(0.23000000417232513, 0, -0.1899999976158142, 0);
+DRR["2"]["Name"] = [[TopBar]];
+
+-- DrRay.TopBar.UICorner
+DRR["3"] = Instance.new("UICorner", DRR["2"]);
+DRR["3"]["CornerRadius"] = UDim.new(0.10000000149011612, 0);
+
+-- DrRay.TopBar.ScrollingFrame
+DRR["4"] = Instance.new("ScrollingFrame", DRR["2"]);
+DRR["4"]["Active"] = true;
+DRR["4"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+DRR["4"]["BorderSizePixel"] = 0;
+DRR["4"]["CanvasSize"] = UDim2.new(0.10000000149011612, 0, 0, 0);
+DRR["4"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 36);
+DRR["4"]["AutomaticCanvasSize"] = Enum.AutomaticSize.X;
+DRR["4"]["BackgroundTransparency"] = 1;
+DRR["4"]["Size"] = UDim2.new(0.915977954864502, 0, 0.5196850299835205, 0);
+DRR["4"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["4"]["ScrollBarThickness"] = 0;
+DRR["4"]["Position"] = UDim2.new(0, 0, 0.4803149700164795, 0);
+
+-- DrRay.TopBar.ScrollingFrame.UIListLayout
+DRR["5"] = Instance.new("UIListLayout", DRR["4"]);
+DRR["5"]["VerticalAlignment"] = Enum.VerticalAlignment.Center;
+DRR["5"]["FillDirection"] = Enum.FillDirection.Horizontal;
+DRR["5"]["Padding"] = UDim.new(0.009999999776482582, 0);
+DRR["5"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+-- DrRay.TopBar.ScrollingFrame.UIPadding
+DRR["6"] = Instance.new("UIPadding", DRR["4"]);
+DRR["6"]["PaddingLeft"] = UDim.new(0.014999999664723873, 0);
+
+-- DrRay.TopBar.DropShadowHolder
+DRR["7"] = Instance.new("Frame", DRR["2"]);
+DRR["7"]["ZIndex"] = 0;
+DRR["7"]["BorderSizePixel"] = 0;
+DRR["7"]["BackgroundTransparency"] = 1;
+DRR["7"]["Size"] = UDim2.new(1, 0, 1, 0);
+DRR["7"]["Name"] = [[DropShadowHolder]];
+
+-- DrRay.TopBar.DropShadowHolder.DropShadow
+DRR["8"] = Instance.new("ImageLabel", DRR["7"]);
+DRR["8"]["ZIndex"] = 0;
+DRR["8"]["BorderSizePixel"] = 0;
+DRR["8"]["SliceCenter"] = Rect.new(49, 49, 450, 450);
+DRR["8"]["ScaleType"] = Enum.ScaleType.Slice;
+DRR["8"]["ImageColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["8"]["ImageTransparency"] = 0.5;
+DRR["8"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+DRR["8"]["Image"] = [[rbxassetid://6014261993]];
+DRR["8"]["Size"] = UDim2.new(1, 47, 1, 47);
+DRR["8"]["Name"] = [[DropShadow]];
+DRR["8"]["BackgroundTransparency"] = 1;
+DRR["8"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+
+-- DrRay.TopBar.UIGradient
+DRR["9"] = Instance.new("UIGradient", DRR["2"]);
+DRR["9"]["Rotation"] = 90;
+DRR["9"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(139, 139, 139)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.TopBar.TopBar
+DRR["a"] = Instance.new("Frame", DRR["2"]);
+DRR["a"]["BorderSizePixel"] = 0;
+DRR["a"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["a"]["LayoutOrder"] = 2;
+DRR["a"]["Size"] = UDim2.new(0.9983566999435425, 0, 0.05511785298585892, 0);
+DRR["a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["a"]["Position"] = UDim2.new(0, 0, 0.4645671844482422, 0);
+DRR["a"]["Name"] = [[TopBar]];
+
+-- DrRay.TopBar.TopBar.UIGradient
+DRR["b"] = Instance.new("UIGradient", DRR["a"]);
+DRR["b"]["Rotation"] = -90;
+DRR["b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(139, 139, 139)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.TopBar.ProfileMenu
+DRR["c"] = Instance.new("Frame", DRR["2"]);
+DRR["c"]["BorderSizePixel"] = 0;
+DRR["c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["c"]["BackgroundTransparency"] = 1;
+DRR["c"]["Size"] = UDim2.new(0.9983566999435425, 0, 0.4645672142505646, 0);
+DRR["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["c"]["Name"] = [[ProfileMenu]];
+
+-- DrRay.TopBar.ProfileMenu.PlayerProfile
+DRR["d"] = Instance.new("ImageButton", DRR["c"]);
+DRR["d"]["BorderSizePixel"] = 0;
+DRR["d"]["AutoButtonColor"] = false;
+DRR["d"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["d"]["Size"] = UDim2.new(0.23481373488903046, 0, 0.682426393032074, 0);
+DRR["d"]["Name"] = [[PlayerProfile]];
+DRR["d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["d"]["Position"] = UDim2.new(0.015024710446596146, 0, 0.18421050906181335, 0);
+
+-- DrRay.TopBar.ProfileMenu.PlayerProfile.UICorner
+DRR["e"] = Instance.new("UICorner", DRR["d"]);
+DRR["e"]["CornerRadius"] = UDim.new(0.30000001192092896, 0);
+
+-- DrRay.TopBar.ProfileMenu.PlayerProfile.UIGradient
+DRR["f"] = Instance.new("UIGradient", DRR["d"]);
+DRR["f"]["Rotation"] = 90;
+DRR["f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(154, 154, 154)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(231, 231, 231))};
+
+-- DrRay.TopBar.ProfileMenu.PlayerProfile.ImageLabel
+DRR["10"] = Instance.new("ImageLabel", DRR["d"]);
+DRR["10"]["BorderSizePixel"] = 0;
+DRR["10"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["10"]["Size"] = UDim2.new(0.16644950211048126, 0, 0.8032786846160889, 0);
+DRR["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["10"]["Position"] = UDim2.new(0.03799999877810478, 0, 0.1420000046491623, 0);
+
+-- DrRay.TopBar.ProfileMenu.PlayerProfile.ImageLabel.UIAspectRatioConstraint
+DRR["11"] = Instance.new("UIAspectRatioConstraint", DRR["10"]);
+DRR["11"]["AspectRatio"] = 0.9842342734336853;
+
+-- DrRay.TopBar.ProfileMenu.PlayerProfile.ImageLabel.UICorner
+DRR["12"] = Instance.new("UICorner", DRR["10"]);
+DRR["12"]["CornerRadius"] = UDim.new(100, 0);
+
+-- DrRay.TopBar.ProfileMenu.PlayerProfile.ImageLabel.UIGradient
+DRR["13"] = Instance.new("UIGradient", DRR["10"]);
+DRR["13"]["Rotation"] = 90;
+DRR["13"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(213, 213, 213)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.TopBar.ProfileMenu.PlayerProfile.TextLabel
+DRR["14"] = Instance.new("TextLabel", DRR["d"]);
+DRR["14"]["TextWrapped"] = true;
+DRR["14"]["BorderSizePixel"] = 0;
+DRR["14"]["TextScaled"] = true;
+DRR["14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["14"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["14"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+DRR["14"]["TextSize"] = 14;
+DRR["14"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["14"]["AutomaticSize"] = Enum.AutomaticSize.X;
+DRR["14"]["Size"] = UDim2.new(0.7192937135696411, 0, 0.41530051827430725, 0);
+DRR["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["14"]["Text"] = [[PlayerName]];
+DRR["14"]["BackgroundTransparency"] = 1;
+DRR["14"]["Position"] = UDim2.new(0.23957718908786774, 0, 0.27320244908332825, 0);
+
+-- DrRay.TopBar.ProfileMenu.UIListLayout
+DRR["15"] = Instance.new("UIListLayout", DRR["c"]);
+DRR["15"]["VerticalAlignment"] = Enum.VerticalAlignment.Center;
+DRR["15"]["FillDirection"] = Enum.FillDirection.Horizontal;
+DRR["15"]["Padding"] = UDim.new(0.014999999664723873, 0);
+DRR["15"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+-- DrRay.TopBar.ProfileMenu.UIPadding
+DRR["16"] = Instance.new("UIPadding", DRR["c"]);
+DRR["16"]["PaddingLeft"] = UDim.new(0.014000000432133675, 0);
+
+-- DrRay.TopBar.ProfileMenu.Clock
+DRR["17"] = Instance.new("ImageButton", DRR["c"]);
+DRR["17"]["BorderSizePixel"] = 0;
+DRR["17"]["AutoButtonColor"] = false;
+DRR["17"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["17"]["Size"] = UDim2.new(0.10328257083892822, 0, 0.682426393032074, 0);
+DRR["17"]["Name"] = [[Clock]];
+DRR["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["17"]["Position"] = UDim2.new(0.26031631231307983, 0, 0.158786803483963, 0);
+
+-- DrRay.TopBar.ProfileMenu.Clock.UICorner
+DRR["18"] = Instance.new("UICorner", DRR["17"]);
+DRR["18"]["CornerRadius"] = UDim.new(0.30000001192092896, 0);
+
+-- DrRay.TopBar.ProfileMenu.Clock.UIGradient
+DRR["19"] = Instance.new("UIGradient", DRR["17"]);
+DRR["19"]["Rotation"] = 90;
+DRR["19"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(154, 154, 154)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(231, 231, 231))};
+
+-- DrRay.TopBar.ProfileMenu.Clock.TextLabel
+DRR["1a"] = Instance.new("TextLabel", DRR["17"]);
+DRR["1a"]["TextWrapped"] = true;
+DRR["1a"]["BorderSizePixel"] = 0;
+DRR["1a"]["TextScaled"] = true;
+DRR["1a"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["1a"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+DRR["1a"]["TextSize"] = 14;
+DRR["1a"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["1a"]["AutomaticSize"] = Enum.AutomaticSize.X;
+DRR["1a"]["Size"] = UDim2.new(0.33195531368255615, 0, 0.41530051827430725, 0);
+DRR["1a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["1a"]["Text"] = [[00:00]];
+DRR["1a"]["BackgroundTransparency"] = 1;
+DRR["1a"]["Position"] = UDim2.new(0.21512815356254578, 0, 0.27320244908332825, 0);
+
+-- DrRay.TopBar.ProfileMenu.Title
+DRR["1b"] = Instance.new("ImageButton", DRR["c"]);
+DRR["1b"]["BorderSizePixel"] = 0;
+DRR["1b"]["AutoButtonColor"] = false;
+DRR["1b"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["1b"]["Size"] = UDim2.new(0.23481373488903046, 0, 0.682426393032074, 0);
+DRR["1b"]["Name"] = [[Title]];
+DRR["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["1b"]["Position"] = UDim2.new(0.015024710446596146, 0, 0.18421050906181335, 0);
+
+-- DrRay.TopBar.ProfileMenu.Title.UICorner
+DRR["1c"] = Instance.new("UICorner", DRR["1b"]);
+DRR["1c"]["CornerRadius"] = UDim.new(0.30000001192092896, 0);
+
+-- DrRay.TopBar.ProfileMenu.Title.UIGradient
+DRR["1d"] = Instance.new("UIGradient", DRR["1b"]);
+DRR["1d"]["Rotation"] = 90;
+DRR["1d"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(154, 154, 154)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(231, 231, 231))};
+
+-- DrRay.TopBar.ProfileMenu.Title.TextLabel
+DRR["1e"] = Instance.new("TextLabel", DRR["1b"]);
+DRR["1e"]["TextWrapped"] = true;
+DRR["1e"]["BorderSizePixel"] = 0;
+DRR["1e"]["TextScaled"] = true;
+DRR["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["1e"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.SemiBold, Enum.FontStyle.Normal);
+DRR["1e"]["TextSize"] = 14;
+DRR["1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["1e"]["AutomaticSize"] = Enum.AutomaticSize.X;
+DRR["1e"]["Size"] = UDim2.new(0.7192937135696411, 0, 0.41530051827430725, 0);
+DRR["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["1e"]["Text"] = [[DarkRay]];
+DRR["1e"]["BackgroundTransparency"] = 1;
+DRR["1e"]["Position"] = UDim2.new(0.13402166962623596, 0, 0.27320244908332825, 0);
+
+-- DrRay.TopBar.TopBarClose
+DRR["1f"] = Instance.new("TextButton", DRR["2"]);
+DRR["1f"]["Active"] = false;
+DRR["1f"]["BorderSizePixel"] = 0;
+DRR["1f"]["AutoButtonColor"] = false;
+DRR["1f"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["1f"]["Selectable"] = false;
+DRR["1f"]["Size"] = UDim2.new(0.08402203768491745, 0, 0.4803149402141571, 0);
+DRR["1f"]["Name"] = [[TopBarClose]];
+DRR["1f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["1f"]["Text"] = [[]];
+DRR["1f"]["Position"] = UDim2.new(0.915977954864502, 0, 0.5196850299835205, 0);
+
+-- DrRay.TopBar.TopBarClose.UICorner
+DRR["20"] = Instance.new("UICorner", DRR["1f"]);
+DRR["20"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+
+-- DrRay.TopBar.TopBarClose.UIGradient
+DRR["21"] = Instance.new("UIGradient", DRR["1f"]);
+DRR["21"]["Rotation"] = 90;
+DRR["21"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(117, 117, 117)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(218, 218, 218))};
+
+-- DrRay.TopBar.TopBarClose.idk
+DRR["22"] = Instance.new("Frame", DRR["1f"]);
+DRR["22"]["BorderSizePixel"] = 0;
+DRR["22"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["22"]["Size"] = UDim2.new(0.2622910141944885, 0, 1, 0);
+DRR["22"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["22"]["Position"] = UDim2.new(0.000002001152552111307, 0, 0, 0);
+DRR["22"]["Name"] = [[idk]];
+
+-- DrRay.TopBar.TopBarClose.idk.UIGradient
+DRR["23"] = Instance.new("UIGradient", DRR["22"]);
+DRR["23"]["Rotation"] = 90;
+DRR["23"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(117, 117, 117)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(218, 218, 218))};
+
+-- DrRay.TopBar.TopBarClose.UIAspectRatioConstraint
+DRR["24"] = Instance.new("UIAspectRatioConstraint", DRR["1f"]);
+
+
+-- DrRay.TopBar.TopBarClose.ImageLabel
+DRR["25"] = Instance.new("ImageLabel", DRR["1f"]);
+DRR["25"]["BorderSizePixel"] = 0;
+DRR["25"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["25"]["Image"] = [[rbxassetid://14122651741]];
+DRR["25"]["LayoutOrder"] = 1;
+DRR["25"]["Size"] = UDim2.new(0.5081987380981445, 0, 0.5971601009368896, 0);
+DRR["25"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["25"]["BackgroundTransparency"] = 1;
+DRR["25"]["Position"] = UDim2.new(0.24589963257312775, 0, 0.23339086771011353, 0);
+
+-- DrRay.TopBar.TopBarClose.ImageLabel.UIAspectRatioConstraint
+DRR["26"] = Instance.new("UIAspectRatioConstraint", DRR["25"]);
+DRR["26"]["AspectRatio"] = 0.9836804866790771;
+
+-- DrRay.TopBar.UIAspectRatioConstraint
+DRR["27"] = Instance.new("UIAspectRatioConstraint", DRR["2"]);
+DRR["27"]["AspectRatio"] = 5.724700927734375;
+
+-- DrRay.MainBar
+DRR["28"] = Instance.new("Frame", DRR["1"]);
+DRR["28"]["BorderSizePixel"] = 0;
+DRR["28"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["28"]["Size"] = UDim2.new(0.5404488444328308, 0, 0.5745577812194824, 0);
+DRR["28"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["28"]["Position"] = UDim2.new(0.23000000417232513, 0, -0.6119999885559082, 0);
+DRR["28"]["Name"] = [[MainBar]];
+
+-- DrRay.MainBar.UICorner
+DRR["29"] = Instance.new("UICorner", DRR["28"]);
+DRR["29"]["CornerRadius"] = UDim.new(0.029999999329447746, 0);
+
+-- DrRay.MainBar.UIGradient
+DRR["2a"] = Instance.new("UIGradient", DRR["28"]);
+DRR["2a"]["Rotation"] = 90;
+DRR["2a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(90, 90, 90)),ColorSequenceKeypoint.new(0.231, Color3.fromRGB(154, 154, 154)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.MainBar.UIAspectRatioConstraint
+DRR["2b"] = Instance.new("UIAspectRatioConstraint", DRR["28"]);
+DRR["2b"]["AspectRatio"] = 1.7326968908309937;
+
+-- DrRay.MainBar.DropShadowHolder
+DRR["2c"] = Instance.new("Frame", DRR["28"]);
+DRR["2c"]["ZIndex"] = 0;
+DRR["2c"]["BorderSizePixel"] = 0;
+DRR["2c"]["BackgroundTransparency"] = 1;
+DRR["2c"]["LayoutOrder"] = -1;
+DRR["2c"]["Size"] = UDim2.new(1, 0, 1, 0);
+DRR["2c"]["Name"] = [[DropShadowHolder]];
+
+-- DrRay.MainBar.DropShadowHolder.DropShadow
+DRR["2d"] = Instance.new("ImageLabel", DRR["2c"]);
+DRR["2d"]["ZIndex"] = 0;
+DRR["2d"]["BorderSizePixel"] = 0;
+DRR["2d"]["SliceCenter"] = Rect.new(49, 49, 450, 450);
+DRR["2d"]["ScaleType"] = Enum.ScaleType.Slice;
+DRR["2d"]["ImageColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["2d"]["ImageTransparency"] = 0.5;
+DRR["2d"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
+DRR["2d"]["Image"] = [[rbxassetid://6014261993]];
+DRR["2d"]["Size"] = UDim2.new(1, 47, 1, 47);
+DRR["2d"]["Name"] = [[DropShadow]];
+DRR["2d"]["BackgroundTransparency"] = 1;
+DRR["2d"]["Position"] = UDim2.new(0.5, 0, 0.5, 0);
+
+-- DrRay.MainBar.Logo
+DRR["2e"] = Instance.new("ImageLabel", DRR["28"]);
+DRR["2e"]["BorderSizePixel"] = 0;
+DRR["2e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["2e"]["Image"] = [[rbxassetid://14133403065]];
+DRR["2e"]["Size"] = UDim2.new(0.18741475045681, 0, 0.3247329592704773, 0);
+DRR["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["2e"]["Name"] = [[Logo]];
+DRR["2e"]["BackgroundTransparency"] = 1;
+DRR["2e"]["Position"] = UDim2.new(0.3991934061050415, 0, 0.33447495102882385, 0);
+
+-- DrRay.MainBar.Logo.UIGradient
+DRR["2f"] = Instance.new("UIGradient", DRR["2e"]);
+DRR["2f"]["Rotation"] = 90;
+DRR["2f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(255, 255, 255)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(5, 6, 23))};
+
+-- DrRay.Folder
+DRR["30"] = Instance.new("Folder", DRR["1"]);
+
+
+-- DrRay.Folder.TabReserved
+DRR["31"] = Instance.new("ScrollingFrame", DRR["30"]);
+DRR["31"]["Active"] = true;
+DRR["31"]["BorderSizePixel"] = 0;
+DRR["31"]["CanvasSize"] = UDim2.new(0, 0, 0, 0);
+DRR["31"]["BackgroundColor3"] = Color3.fromRGB(26, 26, 36);
+DRR["31"]["VerticalScrollBarPosition"] = Enum.VerticalScrollBarPosition.Left;
+DRR["31"]["AutomaticCanvasSize"] = Enum.AutomaticSize.Y;
+DRR["31"]["BackgroundTransparency"] = 1;
+DRR["31"]["Size"] = UDim2.new(1, 0, 0.9599999785423279, 0);
+DRR["31"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["31"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["31"]["ScrollBarThickness"] = 0;
+DRR["31"]["Position"] = UDim2.new(0, 0, 0.03999999910593033, 0);
+DRR["31"]["Visible"] = false;
+DRR["31"]["Name"] = [[TabReserved]];
+
+-- DrRay.Folder.TabReserved.UIListLayout
+DRR["32"] = Instance.new("UIListLayout", DRR["31"]);
+DRR["32"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+DRR["32"]["Padding"] = UDim.new(0.014999999664723873, 0);
+DRR["32"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+-- DrRay.Folder.TabButtonReserved
+DRR["33"] = Instance.new("ImageButton", DRR["30"]);
+DRR["33"]["BorderSizePixel"] = 0;
+DRR["33"]["AutoButtonColor"] = false;
+DRR["33"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
+DRR["33"]["Size"] = UDim2.new(0.19896680116653442, 0, 0.6315789818763733, 0);
+DRR["33"]["Name"] = [[TabButtonReserved]];
+DRR["33"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["33"]["Visible"] = false;
+DRR["33"]["Position"] = UDim2.new(0.015000020153820515, 0, 0.18421050906181335, 0);
+
+-- DrRay.Folder.TabButtonReserved.UICorner
+DRR["34"] = Instance.new("UICorner", DRR["33"]);
+DRR["34"]["CornerRadius"] = UDim.new(0.30000001192092896, 0);
+
+-- DrRay.Folder.TabButtonReserved.Frame
+DRR["35"] = Instance.new("Frame", DRR["33"]);
+DRR["35"]["BorderSizePixel"] = 0;
+DRR["35"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["35"]["BackgroundTransparency"] = 1;
+DRR["35"]["LayoutOrder"] = 1;
+DRR["35"]["Size"] = UDim2.new(0.6113507151603699, 0, 1.0000001192092896, 0);
+DRR["35"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["35"]["Position"] = UDim2.new(0.26662877202033997, 0, -4.950767973355141e-08, 0);
+DRR["35"]["AutomaticSize"] = Enum.AutomaticSize.X;
+
+-- DrRay.Folder.TabButtonReserved.Frame.TextLabel
+DRR["36"] = Instance.new("TextLabel", DRR["35"]);
+DRR["36"]["TextWrapped"] = true;
+DRR["36"]["BorderSizePixel"] = 0;
+DRR["36"]["TextScaled"] = true;
+DRR["36"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["36"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["36"]["TextSize"] = 14;
+DRR["36"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["36"]["AutomaticSize"] = Enum.AutomaticSize.X;
+DRR["36"]["Size"] = UDim2.new(-0.145383819937706, 0, 0.415300577878952, 0);
+DRR["36"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["36"]["Text"] = [[Tab1]];
+DRR["36"]["BackgroundTransparency"] = 1;
+DRR["36"]["Position"] = UDim2.new(-1.2657674551010132, 0, 0.37021857500076294, 0);
+
+-- DrRay.Folder.TabButtonReserved.Frame.UIListLayout
+DRR["37"] = Instance.new("UIListLayout", DRR["35"]);
+DRR["37"]["VerticalAlignment"] = Enum.VerticalAlignment.Center;
+DRR["37"]["FillDirection"] = Enum.FillDirection.Horizontal;
+DRR["37"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+DRR["37"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+-- DrRay.Folder.TabButtonReserved.UIGradient
+DRR["38"] = Instance.new("UIGradient", DRR["33"]);
+DRR["38"]["Rotation"] = 90;
+DRR["38"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(154, 154, 154)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(231, 231, 231))};
+
+-- DrRay.Folder.TabButtonReserved.ImageLabel
+DRR["39"] = Instance.new("ImageLabel", DRR["33"]);
+DRR["39"]["BorderSizePixel"] = 0;
+DRR["39"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["39"]["Size"] = UDim2.new(0.19903095066547394, 0, 0.606557309627533, 0);
+DRR["39"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["39"]["BackgroundTransparency"] = 1;
+DRR["39"]["Position"] = UDim2.new(0.1134648397564888, 0, 0.19672130048274994, 0);
+
+-- DrRay.Folder.TabButtonReserved.ImageLabel.UIAspectRatioConstraint
+DRR["3a"] = Instance.new("UIAspectRatioConstraint", DRR["39"]);
+DRR["3a"]["AspectRatio"] = 0.9842342734336853;
+
+-- DrRay.Folder.TabButtonReserved.UIListLayout
+DRR["3b"] = Instance.new("UIListLayout", DRR["33"]);
+DRR["3b"]["VerticalAlignment"] = Enum.VerticalAlignment.Center;
+DRR["3b"]["FillDirection"] = Enum.FillDirection.Horizontal;
+DRR["3b"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+-- DrRay.Folder.TabButtonReserved.UIPadding
+DRR["3c"] = Instance.new("UIPadding", DRR["33"]);
+DRR["3c"]["PaddingLeft"] = UDim.new(0.10999999940395355, 0);
+
+-- DrRay.Folder.Dropdown
+DRR["3d"] = Instance.new("Frame", DRR["30"]);
+DRR["3d"]["BorderSizePixel"] = 0;
+DRR["3d"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["3d"]["BackgroundTransparency"] = 0.4000000059604645;
+DRR["3d"]["Size"] = UDim2.new(0.9614325165748596, 0, 0.2624756097793579, 0);
+DRR["3d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["3d"]["Position"] = UDim2.new(0.019283747300505638, 0, 0.12373435497283936, 0);
+DRR["3d"]["AutomaticSize"] = Enum.AutomaticSize.Y;
+DRR["3d"]["Visible"] = false;
+DRR["3d"]["Name"] = [[Dropdown]];
+
+-- DrRay.Folder.Dropdown.UICorner
+DRR["3e"] = Instance.new("UICorner", DRR["3d"]);
+DRR["3e"]["CornerRadius"] = UDim.new(0.03999999910593033, 0);
+
+-- DrRay.Folder.Dropdown.UIGradient
+DRR["3f"] = Instance.new("UIGradient", DRR["3d"]);
+DRR["3f"]["Rotation"] = 90;
+DRR["3f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(89, 89, 89)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(139, 139, 139))};
+
+-- DrRay.Folder.Dropdown.Title
+DRR["40"] = Instance.new("TextLabel", DRR["3d"]);
+DRR["40"]["TextWrapped"] = true;
+DRR["40"]["BorderSizePixel"] = 0;
+DRR["40"]["TextScaled"] = true;
+DRR["40"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["40"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["40"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["40"]["TextSize"] = 14;
+DRR["40"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["40"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.19094853103160858, 0);
+DRR["40"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["40"]["Text"] = [[Dropdown]];
+DRR["40"]["Name"] = [[Title]];
+DRR["40"]["BackgroundTransparency"] = 1;
+DRR["40"]["Position"] = UDim2.new(0.017191976308822632, 0, 0.10911344736814499, 0);
+
+-- DrRay.Folder.Dropdown.Description
+DRR["41"] = Instance.new("TextLabel", DRR["3d"]);
+DRR["41"]["TextWrapped"] = true;
+DRR["41"]["BorderSizePixel"] = 0;
+DRR["41"]["TextScaled"] = true;
+DRR["41"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["41"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["41"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["41"]["TextSize"] = 14;
+DRR["41"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["41"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.15457738935947418, 0);
+DRR["41"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["41"]["Text"] = [[List of stuffs.]];
+DRR["41"]["Name"] = [[Description]];
+DRR["41"]["BackgroundTransparency"] = 1;
+DRR["41"]["Position"] = UDim2.new(0.011461317539215088, 0, 0.7547013759613037, 0);
+
+-- DrRay.Folder.Dropdown.DropdownBar
+DRR["42"] = Instance.new("Frame", DRR["3d"]);
+DRR["42"]["BorderSizePixel"] = 0;
+DRR["42"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["42"]["LayoutOrder"] = 10;
+DRR["42"]["Size"] = UDim2.new(0.9684813618659973, 0, 0.29096919298171997, 0);
+DRR["42"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["42"]["Position"] = UDim2.new(0.014326647855341434, 0, 0.34552592039108276, 0);
+DRR["42"]["Name"] = [[DropdownBar]];
+
+-- DrRay.Folder.Dropdown.DropdownBar.UICorner
+DRR["43"] = Instance.new("UICorner", DRR["42"]);
+DRR["43"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+
+-- DrRay.Folder.Dropdown.DropdownBar.UIGradient
+DRR["44"] = Instance.new("UIGradient", DRR["42"]);
+DRR["44"]["Rotation"] = 90;
+DRR["44"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(117, 117, 117)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Dropdown.DropdownBar.UIStroke
+DRR["45"] = Instance.new("UIStroke", DRR["42"]);
+DRR["45"]["Color"] = Color3.fromRGB(40, 45, 62);
+
+-- DrRay.Folder.Dropdown.DropdownBar.Icon
+DRR["46"] = Instance.new("ImageLabel", DRR["42"]);
+DRR["46"]["BorderSizePixel"] = 0;
+DRR["46"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["46"]["Image"] = [[rbxassetid://14122651741]];
+DRR["46"]["Size"] = UDim2.new(0.028106508776545525, 0, 0.59375, 0);
+DRR["46"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["46"]["Name"] = [[Icon]];
+DRR["46"]["Rotation"] = 180;
+DRR["46"]["BackgroundTransparency"] = 1;
+DRR["46"]["Position"] = UDim2.new(0.9589999914169312, 0, 0.21899999678134918, 0);
+
+-- DrRay.Folder.Dropdown.DropdownBar.Icon.UIAspectRatioConstraint
+DRR["47"] = Instance.new("UIAspectRatioConstraint", DRR["46"]);
+
+
+-- DrRay.Folder.Dropdown.DropdownBar.Open
+DRR["48"] = Instance.new("TextLabel", DRR["42"]);
+DRR["48"]["TextWrapped"] = true;
+DRR["48"]["BorderSizePixel"] = 0;
+DRR["48"]["TextScaled"] = true;
+DRR["48"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["48"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["48"]["TextStrokeColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["48"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["48"]["Size"] = UDim2.new(1, 0, 0.59375, 0);
+DRR["48"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["48"]["Text"] = [[none]];
+DRR["48"]["Name"] = [[Open]];
+DRR["48"]["BackgroundTransparency"] = 1;
+DRR["48"]["Position"] = UDim2.new(0, 0, 0.21875, 0);
+
+-- DrRay.Folder.Dropdown.DropdownBar.Trigger
+DRR["49"] = Instance.new("TextButton", DRR["42"]);
+DRR["49"]["BorderSizePixel"] = 0;
+DRR["49"]["AutoButtonColor"] = false;
+DRR["49"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["49"]["Selectable"] = false;
+DRR["49"]["Size"] = UDim2.new(1, 0, 1, 0);
+DRR["49"]["LayoutOrder"] = 10;
+DRR["49"]["Name"] = [[Trigger]];
+DRR["49"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["49"]["Text"] = [[]];
+DRR["49"]["BackgroundTransparency"] = 1;
+
+-- DrRay.Folder.Dropdown.Box
+DRR["4a"] = Instance.new("Frame", DRR["3d"]);
+DRR["4a"]["BorderSizePixel"] = 0;
+DRR["4a"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["4a"]["LayoutOrder"] = 10;
+DRR["4a"]["Size"] = UDim2.new(0.9700000286102295, 0, 0, 0);
+DRR["4a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["4a"]["Position"] = UDim2.new(0.014326647855341434, 0, 0.6362887620925903, 0);
+DRR["4a"]["Visible"] = false;
+DRR["4a"]["Name"] = [[Box]];
+
+-- DrRay.Folder.Dropdown.Box.UIGradient
+DRR["4b"] = Instance.new("UIGradient", DRR["4a"]);
+DRR["4b"]["Rotation"] = 90;
+DRR["4b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(117, 117, 117)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Dropdown.Box.UIStroke
+DRR["4c"] = Instance.new("UIStroke", DRR["4a"]);
+DRR["4c"]["Color"] = Color3.fromRGB(40, 45, 62);
+
+-- DrRay.Folder.Dropdown.Box.UICorner
+DRR["4d"] = Instance.new("UICorner", DRR["4a"]);
+DRR["4d"]["CornerRadius"] = UDim.new(0.05999999865889549, 0);
+
+-- DrRay.Folder.Dropdown.Box.ScrollingFrame
+DRR["4e"] = Instance.new("ScrollingFrame", DRR["4a"]);
+DRR["4e"]["Active"] = true;
+DRR["4e"]["ScrollingDirection"] = Enum.ScrollingDirection.Y;
+DRR["4e"]["BorderSizePixel"] = 0;
+DRR["4e"]["CanvasSize"] = UDim2.new(0, 0, 0.10000000149011612, 0);
+DRR["4e"]["MidImage"] = [[]];
+DRR["4e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["4e"]["AutomaticCanvasSize"] = Enum.AutomaticSize.Y;
+DRR["4e"]["BackgroundTransparency"] = 1;
+DRR["4e"]["Size"] = UDim2.new(1, 0, 1, 0);
+DRR["4e"]["ScrollBarImageColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["4e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["4e"]["ScrollBarThickness"] = 0;
+
+-- DrRay.Folder.Dropdown.Box.ScrollingFrame.UIListLayout
+DRR["4f"] = Instance.new("UIListLayout", DRR["4e"]);
+DRR["4f"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
+DRR["4f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+-- DrRay.Folder.Keybind
+DRR["50"] = Instance.new("Frame", DRR["30"]);
+DRR["50"]["Active"] = true;
+DRR["50"]["BorderSizePixel"] = 0;
+DRR["50"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["50"]["BackgroundTransparency"] = 0.4000000059604645;
+DRR["50"]["Size"] = UDim2.new(0.9614325165748596, 0, 0.2624756097793579, 0);
+DRR["50"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["50"]["Position"] = UDim2.new(0.019283747300505638, 0, 0.12373435497283936, 0);
+DRR["50"]["Visible"] = false;
+DRR["50"]["Name"] = [[Keybind]];
+
+-- DrRay.Folder.Keybind.UICorner
+DRR["51"] = Instance.new("UICorner", DRR["50"]);
+DRR["51"]["CornerRadius"] = UDim.new(0.03999999910593033, 0);
+
+-- DrRay.Folder.Keybind.UIGradient
+DRR["52"] = Instance.new("UIGradient", DRR["50"]);
+DRR["52"]["Rotation"] = 90;
+DRR["52"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(113, 113, 113)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(194, 194, 194))};
+
+-- DrRay.Folder.Keybind.Title
+DRR["53"] = Instance.new("TextLabel", DRR["50"]);
+DRR["53"]["TextWrapped"] = true;
+DRR["53"]["BorderSizePixel"] = 0;
+DRR["53"]["TextScaled"] = true;
+DRR["53"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["53"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["53"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["53"]["TextSize"] = 14;
+DRR["53"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["53"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.19094853103160858, 0);
+DRR["53"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["53"]["Text"] = [[Keybind]];
+DRR["53"]["Name"] = [[Title]];
+DRR["53"]["BackgroundTransparency"] = 1;
+DRR["53"]["Position"] = UDim2.new(0.017191976308822632, 0, 0.10911344736814499, 0);
+
+-- DrRay.Folder.Keybind.Description
+DRR["54"] = Instance.new("TextLabel", DRR["50"]);
+DRR["54"]["TextWrapped"] = true;
+DRR["54"]["BorderSizePixel"] = 0;
+DRR["54"]["TextScaled"] = true;
+DRR["54"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["54"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["54"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["54"]["TextSize"] = 14;
+DRR["54"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["54"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.15457738935947418, 0);
+DRR["54"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["54"]["Text"] = [[Press this square and enter any key to bind!]];
+DRR["54"]["Name"] = [[Description]];
+DRR["54"]["BackgroundTransparency"] = 1;
+DRR["54"]["Position"] = UDim2.new(0.012893982231616974, 0, 0.7092373967170715, 0);
+
+-- DrRay.Folder.Keybind.Bind
+DRR["55"] = Instance.new("Frame", DRR["50"]);
+DRR["55"]["Active"] = true;
+DRR["55"]["BorderSizePixel"] = 0;
+DRR["55"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["55"]["Size"] = UDim2.new(0.14899714291095734, 0, 0.29096919298171997, 0);
+DRR["55"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["55"]["Position"] = UDim2.new(0.014326647855341434, 0, 0.34552592039108276, 0);
+DRR["55"]["Name"] = [[Bind]];
+
+-- DrRay.Folder.Keybind.Bind.UICorner
+DRR["56"] = Instance.new("UICorner", DRR["55"]);
+DRR["56"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+
+-- DrRay.Folder.Keybind.Bind.UIGradient
+DRR["57"] = Instance.new("UIGradient", DRR["55"]);
+DRR["57"]["Rotation"] = 90;
+DRR["57"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(117, 117, 117)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Keybind.Bind.UIStroke
+DRR["58"] = Instance.new("UIStroke", DRR["55"]);
+DRR["58"]["Color"] = Color3.fromRGB(40, 45, 62);
+
+-- DrRay.Folder.Keybind.Bind.Button
+DRR["59"] = Instance.new("TextButton", DRR["55"]);
+DRR["59"]["TextWrapped"] = true;
+DRR["59"]["ZIndex"] = 5;
+DRR["59"]["BorderSizePixel"] = 0;
+DRR["59"]["TextStrokeColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["59"]["TextScaled"] = true;
+DRR["59"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["59"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["59"]["TextColor3"] = Color3.fromRGB(160, 160, 160);
+DRR["59"]["Selectable"] = false;
+DRR["59"]["Size"] = UDim2.new(1, 0, 0.59375, 0);
+DRR["59"]["Name"] = [[Button]];
+DRR["59"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["59"]["Text"] = [[key]];
+DRR["59"]["Position"] = UDim2.new(0, 0, 0.21875, 0);
+DRR["59"]["BackgroundTransparency"] = 0.9900000095367432;
+
+-- DrRay.Folder.Label
+DRR["5a"] = Instance.new("Frame", DRR["30"]);
+DRR["5a"]["BorderSizePixel"] = 0;
+DRR["5a"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["5a"]["Size"] = UDim2.new(0.9614325165748596, 0, 0.07873434573411942, 0);
+DRR["5a"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["5a"]["Position"] = UDim2.new(0.019283747300505638, 0, 0.01806684397161007, 0);
+DRR["5a"]["AutomaticSize"] = Enum.AutomaticSize.Y;
+DRR["5a"]["Visible"] = false;
+DRR["5a"]["Name"] = [[Label]];
+
+-- DrRay.Folder.Label.UICorner
+DRR["5b"] = Instance.new("UICorner", DRR["5a"]);
+DRR["5b"]["CornerRadius"] = UDim.new(0.33000001311302185, 0);
+
+-- DrRay.Folder.Label.UIGradient
+DRR["5c"] = Instance.new("UIGradient", DRR["5a"]);
+DRR["5c"]["Rotation"] = 90;
+DRR["5c"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 166, 166)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Label.Title
+DRR["5d"] = Instance.new("TextLabel", DRR["5a"]);
+DRR["5d"]["TextWrapped"] = true;
+DRR["5d"]["BorderSizePixel"] = 0;
+DRR["5d"]["TextScaled"] = true;
+DRR["5d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["5d"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["5d"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["5d"]["TextSize"] = 14;
+DRR["5d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["5d"]["Size"] = UDim2.new(0.9668599367141724, 0, 0.5928126573562622, 0);
+DRR["5d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["5d"]["Text"] = [[This is a Label]];
+DRR["5d"]["Name"] = [[Title]];
+DRR["5d"]["BackgroundTransparency"] = 1;
+DRR["5d"]["Position"] = UDim2.new(0.018000036478042603, 0, 0.22100010514259338, 0);
+
+-- DrRay.Folder.Slider
+DRR["5e"] = Instance.new("Frame", DRR["30"]);
+DRR["5e"]["BorderSizePixel"] = 0;
+DRR["5e"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["5e"]["BackgroundTransparency"] = 0.4000000059604645;
+DRR["5e"]["Size"] = UDim2.new(0.9614325165748596, 0, 0.2624756097793579, 0);
+DRR["5e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["5e"]["Position"] = UDim2.new(0.019283747300505638, 0, 0.12373435497283936, 0);
+DRR["5e"]["Visible"] = false;
+DRR["5e"]["Name"] = [[Slider]];
+
+-- DrRay.Folder.Slider.UICorner
+DRR["5f"] = Instance.new("UICorner", DRR["5e"]);
+DRR["5f"]["CornerRadius"] = UDim.new(0.03999999910593033, 0);
+
+-- DrRay.Folder.Slider.UIGradient
+DRR["60"] = Instance.new("UIGradient", DRR["5e"]);
+DRR["60"]["Rotation"] = 90;
+DRR["60"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(108, 108, 108)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(232, 232, 232))};
+
+-- DrRay.Folder.Slider.Title
+DRR["61"] = Instance.new("TextLabel", DRR["5e"]);
+DRR["61"]["TextWrapped"] = true;
+DRR["61"]["BorderSizePixel"] = 0;
+DRR["61"]["TextScaled"] = true;
+DRR["61"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["61"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["61"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["61"]["TextSize"] = 14;
+DRR["61"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["61"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.19094853103160858, 0);
+DRR["61"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["61"]["Text"] = [[Speed]];
+DRR["61"]["Name"] = [[Title]];
+DRR["61"]["BackgroundTransparency"] = 1;
+DRR["61"]["Position"] = UDim2.new(0.017191976308822632, 0, 0.10911344736814499, 0);
+
+-- DrRay.Folder.Slider.ActualSlider
+DRR["62"] = Instance.new("Frame", DRR["5e"]);
+DRR["62"]["BorderSizePixel"] = 0;
+DRR["62"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["62"]["Size"] = UDim2.new(0.9684813618659973, 0, 0.29096919298171997, 0);
+DRR["62"]["ClipsDescendants"] = true;
+DRR["62"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["62"]["Position"] = UDim2.new(0.014326647855341434, 0, 0.34552592039108276, 0);
+DRR["62"]["Name"] = [[ActualSlider]];
+
+-- DrRay.Folder.Slider.ActualSlider.UICorner
+DRR["63"] = Instance.new("UICorner", DRR["62"]);
+DRR["63"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+
+-- DrRay.Folder.Slider.ActualSlider.UIGradient
+DRR["64"] = Instance.new("UIGradient", DRR["62"]);
+DRR["64"]["Rotation"] = 90;
+DRR["64"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(64, 64, 64)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(148, 148, 148))};
+
+-- DrRay.Folder.Slider.ActualSlider.UIStroke
+DRR["65"] = Instance.new("UIStroke", DRR["62"]);
+DRR["65"]["Color"] = Color3.fromRGB(0, 255, 39);
+
+-- DrRay.Folder.Slider.ActualSlider.Fill
+DRR["66"] = Instance.new("Frame", DRR["62"]);
+DRR["66"]["BorderSizePixel"] = 0;
+DRR["66"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["66"]["Size"] = UDim2.new(1, 0, 1, 0);
+DRR["66"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["66"]["Position"] = UDim2.new(-0.0010000000474974513, 0, 0.029999999329447746, 0);
+DRR["66"]["Name"] = [[Fill]];
+
+-- DrRay.Folder.Slider.ActualSlider.Fill.UICorner
+DRR["67"] = Instance.new("UICorner", DRR["66"]);
+DRR["67"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+
+-- DrRay.Folder.Slider.ActualSlider.Fill.UIGradient
+DRR["68"] = Instance.new("UIGradient", DRR["66"]);
+DRR["68"]["Rotation"] = 90;
+DRR["68"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(107, 107, 107)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Slider.ActualSlider.Trigger
+DRR["69"] = Instance.new("TextButton", DRR["62"]);
+DRR["69"]["BorderSizePixel"] = 0;
+DRR["69"]["AutoButtonColor"] = false;
+DRR["69"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["69"]["Selectable"] = false;
+DRR["69"]["Size"] = UDim2.new(1, 0, 1, 0);
+DRR["69"]["LayoutOrder"] = 5;
+DRR["69"]["Name"] = [[Trigger]];
+DRR["69"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["69"]["Text"] = [[]];
+DRR["69"]["Position"] = UDim2.new(-0.0010000000474974513, 0, 0.029999999329447746, 0);
+DRR["69"]["BackgroundTransparency"] = 1;
+
+-- DrRay.Folder.Slider.ActualSlider.Trigger.UICorner
+DRR["6a"] = Instance.new("UICorner", DRR["69"]);
+DRR["6a"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+
+-- DrRay.Folder.Slider.ActualSlider.Trigger.UIGradient
+DRR["6b"] = Instance.new("UIGradient", DRR["69"]);
+DRR["6b"]["Rotation"] = 90;
+DRR["6b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 166, 166)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Slider.ActualSlider.Title
+DRR["6c"] = Instance.new("TextLabel", DRR["62"]);
+DRR["6c"]["TextWrapped"] = true;
+DRR["6c"]["BorderSizePixel"] = 0;
+DRR["6c"]["TextScaled"] = true;
+DRR["6c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["6c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["6c"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["6c"]["TextSize"] = 14;
+DRR["6c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["6c"]["LayoutOrder"] = 3;
+DRR["6c"]["Size"] = UDim2.new(0.9582196474075317, 0, 0.5971987247467041, 0);
+DRR["6c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["6c"]["Text"] = [[100]];
+DRR["6c"]["Name"] = [[Title]];
+DRR["6c"]["BackgroundTransparency"] = 1;
+DRR["6c"]["Position"] = UDim2.new(0.023000000044703484, 0, 0.23100000619888306, 0);
+
+-- DrRay.Folder.Slider.Description
+DRR["6d"] = Instance.new("TextLabel", DRR["5e"]);
+DRR["6d"]["TextWrapped"] = true;
+DRR["6d"]["BorderSizePixel"] = 0;
+DRR["6d"]["TextScaled"] = true;
+DRR["6d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["6d"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["6d"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["6d"]["TextSize"] = 14;
+DRR["6d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["6d"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.15457738935947418, 0);
+DRR["6d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["6d"]["Text"] = [[Changes your walkspeed.]];
+DRR["6d"]["Name"] = [[Description]];
+DRR["6d"]["BackgroundTransparency"] = 1;
+DRR["6d"]["Position"] = UDim2.new(0.015759311616420746, 0, 0.7274229526519775, 0);
+
+-- DrRay.Folder.Textbox
+DRR["6e"] = Instance.new("Frame", DRR["30"]);
+DRR["6e"]["BorderSizePixel"] = 0;
+DRR["6e"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["6e"]["BackgroundTransparency"] = 0.4000000059604645;
+DRR["6e"]["Size"] = UDim2.new(0.9614325165748596, 0, 0.2624756097793579, 0);
+DRR["6e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["6e"]["Position"] = UDim2.new(0.019283747300505638, 0, 0.12373435497283936, 0);
+DRR["6e"]["Visible"] = false;
+DRR["6e"]["Name"] = [[Textbox]];
+
+-- DrRay.Folder.Textbox.UICorner
+DRR["6f"] = Instance.new("UICorner", DRR["6e"]);
+DRR["6f"]["CornerRadius"] = UDim.new(0.03999999910593033, 0);
+
+-- DrRay.Folder.Textbox.UIGradient
+DRR["70"] = Instance.new("UIGradient", DRR["6e"]);
+DRR["70"]["Rotation"] = 90;
+DRR["70"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(89, 89, 89)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(139, 139, 139))};
+
+-- DrRay.Folder.Textbox.Title
+DRR["71"] = Instance.new("TextLabel", DRR["6e"]);
+DRR["71"]["TextWrapped"] = true;
+DRR["71"]["BorderSizePixel"] = 0;
+DRR["71"]["TextScaled"] = true;
+DRR["71"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["71"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["71"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["71"]["TextSize"] = 14;
+DRR["71"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["71"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.19094853103160858, 0);
+DRR["71"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["71"]["Text"] = [[Textbox]];
+DRR["71"]["Name"] = [[Title]];
+DRR["71"]["BackgroundTransparency"] = 1;
+DRR["71"]["Position"] = UDim2.new(0.017191976308822632, 0, 0.10911344736814499, 0);
+
+-- DrRay.Folder.Textbox.Description
+DRR["72"] = Instance.new("TextLabel", DRR["6e"]);
+DRR["72"]["TextWrapped"] = true;
+DRR["72"]["BorderSizePixel"] = 0;
+DRR["72"]["TextScaled"] = true;
+DRR["72"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["72"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["72"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["72"]["TextSize"] = 14;
+DRR["72"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["72"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.15457738935947418, 0);
+DRR["72"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["72"]["Text"] = [[Input and yeah.]];
+DRR["72"]["Name"] = [[Description]];
+DRR["72"]["BackgroundTransparency"] = 1;
+DRR["72"]["Position"] = UDim2.new(0.012893982231616974, 0, 0.7092373967170715, 0);
+
+-- DrRay.Folder.Textbox.TextboxBar
+DRR["73"] = Instance.new("Frame", DRR["6e"]);
+DRR["73"]["BorderSizePixel"] = 0;
+DRR["73"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["73"]["Size"] = UDim2.new(0.9684813618659973, 0, 0.29096919298171997, 0);
+DRR["73"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["73"]["Position"] = UDim2.new(0.014326647855341434, 0, 0.34552592039108276, 0);
+DRR["73"]["Name"] = [[TextboxBar]];
+
+-- DrRay.Folder.Textbox.TextboxBar.UICorner
+DRR["74"] = Instance.new("UICorner", DRR["73"]);
+DRR["74"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+
+-- DrRay.Folder.Textbox.TextboxBar.UIGradient
+DRR["75"] = Instance.new("UIGradient", DRR["73"]);
+DRR["75"]["Rotation"] = 90;
+DRR["75"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(117, 117, 117)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Textbox.TextboxBar.UIStroke
+DRR["76"] = Instance.new("UIStroke", DRR["73"]);
+DRR["76"]["Color"] = Color3.fromRGB(40, 45, 62);
+
+-- DrRay.Folder.Textbox.TextboxBar.ActualTextbox
+DRR["77"] = Instance.new("TextBox", DRR["73"]);
+DRR["77"]["PlaceholderColor3"] = Color3.fromRGB(155, 155, 155);
+DRR["77"]["BorderSizePixel"] = 0;
+DRR["77"]["TextWrapped"] = true;
+DRR["77"]["TextStrokeColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["77"]["TextScaled"] = true;
+DRR["77"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["77"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["77"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["77"]["BackgroundTransparency"] = 1;
+DRR["77"]["PlaceholderText"] = [[Input Here...]];
+DRR["77"]["Size"] = UDim2.new(1, 0, 0.59375, 0);
+DRR["77"]["Selectable"] = false;
+DRR["77"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["77"]["Text"] = [[]];
+DRR["77"]["Position"] = UDim2.new(0, 0, 0.21875, 0);
+DRR["77"]["Name"] = [[ActualTextbox]];
+
+-- DrRay.Folder.Toggle
+DRR["78"] = Instance.new("Frame", DRR["30"]);
+DRR["78"]["Active"] = true;
+DRR["78"]["BorderSizePixel"] = 0;
+DRR["78"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["78"]["BackgroundTransparency"] = 0.4000000059604645;
+DRR["78"]["Size"] = UDim2.new(0.9614325165748596, 0, 0.15495234727859497, 0);
+DRR["78"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["78"]["Position"] = UDim2.new(0.019283747300505638, 0, 0.6786856055259705, 0);
+DRR["78"]["Visible"] = false;
+DRR["78"]["Name"] = [[Toggle]];
+
+-- DrRay.Folder.Toggle.UICorner
+DRR["79"] = Instance.new("UICorner", DRR["78"]);
+DRR["79"]["CornerRadius"] = UDim.new(0.03999999910593033, 0);
+
+-- DrRay.Folder.Toggle.UIGradient
+DRR["7a"] = Instance.new("UIGradient", DRR["78"]);
+DRR["7a"]["Rotation"] = 90;
+DRR["7a"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(109, 109, 109)),ColorSequenceKeypoint.new(0.765, Color3.fromRGB(181, 181, 181)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(217, 217, 217))};
+
+-- DrRay.Folder.Toggle.Title
+DRR["7b"] = Instance.new("TextLabel", DRR["78"]);
+DRR["7b"]["TextWrapped"] = true;
+DRR["7b"]["BorderSizePixel"] = 0;
+DRR["7b"]["RichText"] = true;
+DRR["7b"]["TextScaled"] = true;
+DRR["7b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["7b"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["7b"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["7b"]["TextSize"] = 14;
+DRR["7b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["7b"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.323449969291687, 0);
+DRR["7b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["7b"]["Text"] = [[Toggle]];
+DRR["7b"]["Name"] = [[Title]];
+DRR["7b"]["BackgroundTransparency"] = 1;
+DRR["7b"]["Position"] = UDim2.new(0.015759311616420746, 0, 0.18482854962348938, 0);
+
+-- DrRay.Folder.Toggle.Description
+DRR["7c"] = Instance.new("TextLabel", DRR["78"]);
+DRR["7c"]["TextWrapped"] = true;
+DRR["7c"]["BorderSizePixel"] = 0;
+DRR["7c"]["TextScaled"] = true;
+DRR["7c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["7c"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["7c"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["7c"]["TextSize"] = 14;
+DRR["7c"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["7c"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.26184046268463135, 0);
+DRR["7c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["7c"]["Text"] = [[Toggle I and O xd]];
+DRR["7c"]["Name"] = [[Description]];
+DRR["7c"]["BackgroundTransparency"] = 1;
+DRR["7c"]["Position"] = UDim2.new(0.011461318470537663, 0, 0.5852904319763184, 0);
+
+-- DrRay.Folder.Toggle.Label
+DRR["7d"] = Instance.new("Frame", DRR["78"]);
+DRR["7d"]["BorderSizePixel"] = 0;
+DRR["7d"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["7d"]["Size"] = UDim2.new(0.03868212550878525, 0, 0.42860323190689087, 0);
+DRR["7d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["7d"]["Position"] = UDim2.new(0.92550128698349, 0, 0.27990657091140747, 0);
+DRR["7d"]["AutomaticSize"] = Enum.AutomaticSize.Y;
+DRR["7d"]["Name"] = [[Label]];
+
+-- DrRay.Folder.Toggle.Label.UICorner
+DRR["7e"] = Instance.new("UICorner", DRR["7d"]);
+DRR["7e"]["CornerRadius"] = UDim.new(0.33000001311302185, 0);
+
+-- DrRay.Folder.Toggle.Label.UIGradient
+DRR["7f"] = Instance.new("UIGradient", DRR["7d"]);
+DRR["7f"]["Rotation"] = 90;
+DRR["7f"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 166, 166)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Toggle.Label.UIStroke
+DRR["80"] = Instance.new("UIStroke", DRR["7d"]);
+DRR["80"]["Color"] = Color3.fromRGB(40, 45, 62);
+DRR["80"]["Thickness"] = 2.4000000953674316;
+DRR["80"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+
+-- DrRay.Folder.Toggle.Label.Label
+DRR["81"] = Instance.new("TextButton", DRR["7d"]);
+DRR["81"]["BorderSizePixel"] = 0;
+DRR["81"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["81"]["Selectable"] = false;
+DRR["81"]["Size"] = UDim2.new(1, 0, 1, 0);
+DRR["81"]["Name"] = [[Label]];
+DRR["81"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["81"]["Text"] = [[]];
+DRR["81"]["AutomaticSize"] = Enum.AutomaticSize.Y;
+DRR["81"]["BackgroundTransparency"] = 1;
+
+-- DrRay.Folder.Toggle.Label.Label.UICorner
+DRR["82"] = Instance.new("UICorner", DRR["81"]);
+DRR["82"]["CornerRadius"] = UDim.new(0.33000001311302185, 0);
+
+-- DrRay.Folder.Toggle.Label.Label.UIGradient
+DRR["83"] = Instance.new("UIGradient", DRR["81"]);
+DRR["83"]["Rotation"] = 90;
+DRR["83"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(166, 166, 166)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.Button
+DRR["84"] = Instance.new("TextButton", DRR["30"]);
+DRR["84"]["BorderSizePixel"] = 0;
+DRR["84"]["AutoButtonColor"] = false;
+DRR["84"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["84"]["Selectable"] = false;
+DRR["84"]["Visible"] = false;
+DRR["84"]["Size"] = UDim2.new(0.9614325165748596, 0, 0.15495234727859497, 0);
+DRR["84"]["Name"] = [[Button]];
+DRR["84"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["84"]["Text"] = [[]];
+DRR["84"]["Position"] = UDim2.new(0.019283747300505638, 0, 0.6786856055259705, 0);
+DRR["84"]["BackgroundTransparency"] = 0.4000000059604645;
+
+-- DrRay.Folder.Button.UICorner
+DRR["85"] = Instance.new("UICorner", DRR["84"]);
+DRR["85"]["CornerRadius"] = UDim.new(0.03999999910593033, 0);
+
+-- DrRay.Folder.Button.UIGradient
+DRR["86"] = Instance.new("UIGradient", DRR["84"]);
+DRR["86"]["Rotation"] = 90;
+DRR["86"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(109, 109, 109)),ColorSequenceKeypoint.new(0.765, Color3.fromRGB(181, 181, 181)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(217, 217, 217))};
+
+-- DrRay.Folder.Button.Title
+DRR["87"] = Instance.new("TextLabel", DRR["84"]);
+DRR["87"]["TextWrapped"] = true;
+DRR["87"]["BorderSizePixel"] = 0;
+DRR["87"]["RichText"] = true;
+DRR["87"]["TextScaled"] = true;
+DRR["87"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["87"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["87"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["87"]["TextSize"] = 14;
+DRR["87"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["87"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.323449969291687, 0);
+DRR["87"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["87"]["Text"] = [[Button]];
+DRR["87"]["Name"] = [[Title]];
+DRR["87"]["BackgroundTransparency"] = 1;
+DRR["87"]["Position"] = UDim2.new(0.015759311616420746, 0, 0.18482854962348938, 0);
+
+-- DrRay.Folder.Button.Description
+DRR["88"] = Instance.new("TextLabel", DRR["84"]);
+DRR["88"]["TextWrapped"] = true;
+DRR["88"]["BorderSizePixel"] = 0;
+DRR["88"]["TextScaled"] = true;
+DRR["88"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["88"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["88"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["88"]["TextSize"] = 14;
+DRR["88"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["88"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.26184046268463135, 0);
+DRR["88"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["88"]["Text"] = [[Hello! i'm a button :D]];
+DRR["88"]["Name"] = [[Description]];
+DRR["88"]["BackgroundTransparency"] = 1;
+DRR["88"]["Position"] = UDim2.new(0.011461318470537663, 0, 0.5852904319763184, 0);
+
+-- DrRay.Folder.DropdownButton
+DRR["89"] = Instance.new("TextButton", DRR["30"]);
+DRR["89"]["Active"] = false;
+DRR["89"]["BorderSizePixel"] = 0;
+DRR["89"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["89"]["Selectable"] = false;
+DRR["89"]["Visible"] = false;
+DRR["89"]["Size"] = UDim2.new(0.9995859265327454, 0, 0.17368526756763458, 0);
+DRR["89"]["Name"] = [[DropdownButton]];
+DRR["89"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["89"]["Position"] = UDim2.new(0.08656254410743713, 0, 0, 0);
+
+-- DrRay.Folder.DropdownButton.UICorner
+DRR["8a"] = Instance.new("UICorner", DRR["89"]);
+DRR["8a"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+
+-- DrRay.Folder.DropdownButton.UIGradient
+DRR["8b"] = Instance.new("UIGradient", DRR["89"]);
+DRR["8b"]["Rotation"] = 90;
+DRR["8b"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(117, 117, 117)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(255, 255, 255))};
+
+-- DrRay.Folder.DropdownButton.UIStroke
+DRR["8c"] = Instance.new("UIStroke", DRR["89"]);
+DRR["8c"]["Color"] = Color3.fromRGB(40, 45, 62);
+
+-- DrRay.Folder.DropdownButton.name
+DRR["8d"] = Instance.new("TextLabel", DRR["89"]);
+DRR["8d"]["TextWrapped"] = true;
+DRR["8d"]["BorderSizePixel"] = 0;
+DRR["8d"]["TextScaled"] = true;
+DRR["8d"]["BackgroundColor3"] = Color3.fromRGB(0, 255, 39);
+DRR["8d"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["8d"]["TextStrokeColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["8d"]["TextColor3"] = Color3.fromRGB(160, 160, 160);
+DRR["8d"]["Size"] = UDim2.new(1, 0, 0.59375, 0);
+DRR["8d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["8d"]["Text"] = [[none]];
+DRR["8d"]["Name"] = [[name]];
+DRR["8d"]["BackgroundTransparency"] = 1;
+DRR["8d"]["Position"] = UDim2.new(0, 0, 0.21875, 0);
+
+-- DrRay.Button
+DRR["8e"] = Instance.new("TextButton", DRR["1"]);
+DRR["8e"]["BorderSizePixel"] = 0;
+DRR["8e"]["AutoButtonColor"] = false;
+DRR["8e"]["BackgroundColor3"] = Color3.fromRGB(40, 45, 62);
+DRR["8e"]["Selectable"] = false;
+DRR["8e"]["Visible"] = false;
+DRR["8e"]["Size"] = UDim2.new(0.9614325165748596, 0, 0.15495234727859497, 0);
+DRR["8e"]["Name"] = [[Button]];
+DRR["8e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["8e"]["Text"] = [[]];
+DRR["8e"]["Position"] = UDim2.new(0.019283747300505638, 0, 0.6786856055259705, 0);
+DRR["8e"]["BackgroundTransparency"] = 0.4000000059604645;
+
+-- DrRay.Button.UICorner
+DRR["8f"] = Instance.new("UICorner", DRR["8e"]);
+DRR["8f"]["CornerRadius"] = UDim.new(0.03999999910593033, 0);
+
+-- DrRay.Button.UIGradient
+DRR["90"] = Instance.new("UIGradient", DRR["8e"]);
+DRR["90"]["Rotation"] = 90;
+DRR["90"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(109, 109, 109)),ColorSequenceKeypoint.new(0.765, Color3.fromRGB(181, 181, 181)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(217, 217, 217))};
+
+-- DrRay.Button.Title
+DRR["91"] = Instance.new("TextLabel", DRR["8e"]);
+DRR["91"]["TextWrapped"] = true;
+DRR["91"]["BorderSizePixel"] = 0;
+DRR["91"]["RichText"] = true;
+DRR["91"]["TextScaled"] = true;
+DRR["91"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["91"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["91"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+DRR["91"]["TextSize"] = 14;
+DRR["91"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["91"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.323449969291687, 0);
+DRR["91"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["91"]["Text"] = [[Button]];
+DRR["91"]["Name"] = [[Title]];
+DRR["91"]["BackgroundTransparency"] = 1;
+DRR["91"]["Position"] = UDim2.new(0.015759311616420746, 0, 0.18482854962348938, 0);
+
+-- DrRay.Button.Description
+DRR["92"] = Instance.new("TextLabel", DRR["8e"]);
+DRR["92"]["TextWrapped"] = true;
+DRR["92"]["BorderSizePixel"] = 0;
+DRR["92"]["TextScaled"] = true;
+DRR["92"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["92"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+DRR["92"]["FontFace"] = Font.new([[rbxassetid://11702779517]], Enum.FontWeight.Regular, Enum.FontStyle.Italic);
+DRR["92"]["TextSize"] = 14;
+DRR["92"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+DRR["92"]["Size"] = UDim2.new(0.9656160473823547, 0, 0.26184046268463135, 0);
+DRR["92"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+DRR["92"]["Text"] = [[Hello! i'm a button :D]];
+DRR["92"]["Name"] = [[Description]];
+DRR["92"]["BackgroundTransparency"] = 1;
+DRR["92"]["Position"] = UDim2.new(0.011461318470537663, 0, 0.5852904319763184, 0);
+
+-- DrRay.Library
+DRR["93"] = Instance.new("ModuleScript", DRR["1"]);
+DRR["93"]["Name"] = [[Library]];
+
+-- Require DRR wrapper
+local DRR_REQUIRE = require;
+local DRR_MODULES = {};
+local function require(Module:ModuleScript)
+    local ModuleState = DRR_MODULES[Module];
+    if ModuleState then
+        if not ModuleState.Required then
+            ModuleState.Required = true;
+            ModuleState.Value = ModuleState.Closure();
+        end
+        return ModuleState.Value;
+    end;
+    return DRR_REQUIRE(Module);
 end
 
-local function intersects (p, edge)
-	local x1, y1 = edge.a.x, edge.a.y
-	local x2, y2 = edge.b.x, edge.b.y
+DRR_MODULES[DRR["93"]] = {
+Closure = function()
+    local script = DRR["93"];
+local UILIB = {}
+local parent  = script.Parent
+local reserved = parent.Folder
+UILIB.__index = UILIB
 
-	local x3, y3 = p.x, p.y
-	local x4, y4 = p.x + 2147483647, p.y
+local listening = false
+local twServ = game:GetService("TweenService")
+local UIS = game:GetService("UserInputService")
+local GlobalColor1 = Color3.fromRGB(39, 44, 61)
+local GlobalColor2 = Color3.fromRGB(0, 255, 38)
+local closed = false
 
-	local den = (x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4)
-
-	if den == 0 then return false end
-
-	local t = ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) / den
-	local u = -((x1 - x2) * (y1 - y3) - (y1 - y2) * (x1 - x3)) / den
-
-	if t and u and t > 0 and t < 1 and u > 0 then
-		return true
-	end
- 
-	return false
-end
-
-local function getCorners(guiObject0)
-	local pos = guiObject0.AbsolutePosition
-	local size = guiObject0.AbsoluteSize
-	local rotation = guiObject0.Rotation
-
-	local a = pos + size/2 - math.sqrt((size.X/2)^2 + (size.Y/2)^2) * Vector2.new(math.cos(math.rad(rotation) + math.atan2(size.Y, size.X)), math.sin(math.rad(rotation) + math.atan2(size.Y, size.X)))
-	local b = pos + size/2-math.sqrt((size.X/2)^2 + (size.Y/2)^2) * Vector2.new(math.cos(math.rad(rotation) - math.atan2(size.Y, size.X)), math.sin(math.rad(rotation) - math.atan2(size.Y, size.X)))
-	local c = pos + size/2+math.sqrt((size.X/2)^2 + (size.Y/2)^2) * Vector2.new(math.cos(math.rad(rotation) + math.atan2(size.Y, size.X)), math.sin(math.rad(rotation) + math.atan2(size.Y, size.X)))
-	local d = pos + size/2+math.sqrt((size.X/2)^2 + (size.Y/2)^2) * Vector2.new(math.cos(math.rad(rotation) - math.atan2(size.Y, size.X)), math.sin(math.rad(rotation) - math.atan2(size.Y, size.X)))
-
-	return { 
-		topleft = a, 
-		bottomleft = b, 
-		topright = d, 
-		bottomright = c 
-	}
-end
+parent.TopBar.ProfileMenu.PlayerProfile.TextLabel.Text = game:GetService("Players").LocalPlayer.DisplayName
+parent.TopBar.ProfileMenu.PlayerProfile.ImageLabel.Image = game:GetService("Players"):GetUserThumbnailAsync(game.Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size100x100)
 
 
-function isColliding(guiObject0, guiObject1)		
-	if not typeof(guiObject0) == "Instance" or not typeof(guiObject1) == "Instance" then 
-		error("argument must be an instance") 
-		return 
-	end
-
-	local ap1 = guiObject0.AbsolutePosition
-	local as1 = guiObject0.AbsoluteSize
-	local sum = ap1 + as1
-
-	local ap2 = guiObject1.AbsolutePosition
-	local as2 = guiObject1.AbsoluteSize
-	local sum2 = ap2 + as2
-
-	local corners0 = getCorners(guiObject0)
-	local corners1 = getCorners(guiObject1)
-
-	local edges = {
-		{
-			a = corners1.topleft,
-			b = corners1.bottomleft
-		},
-		{
-			a = corners1.topleft,
-			b = corners1.topright
-		},
-		{
-			a = corners1.bottomleft,
-			b = corners1.bottomright
-		},
-		{
-			a = corners1.topright,
-			b = corners1.bottomright
-		}
-	}
-
-	local collisions = 0
-
-	for _, corner in pairs(corners0) do
-		for _, edge in pairs(edges) do			
-			if intersects(corner, edge) then
-				collisions += 1
-			end			
-		end
-	end
-
-	if collisions%2 ~= 0 then
-		return true
-	end
-
-	if (ap1.x < sum2.x and sum.x > ap2.x) and (ap1.y < sum2.y and sum.y > ap2.y) then
-		return true
-	end
-
-	return false
-end
-
-
-
-
-local souid = false;
-local index = 0;
-
-local function draggable(obj,extern,parented)
-	local globals = {}
-	globals.dragging=nil
-	globals.uiorigin=nil
-	globals.morigin=nil
-	obj.InputBegan:Connect(function(input)
-
-		if input.UserInputType == Enum.UserInputType.MouseButton1 and souid == false and obj.ZIndex >= index then
-			souid = true
-
-			index = obj.ZIndex				
-			obj.Parent = EmuUI
-
-			globals.dragging = true
-			globals.uiorigin = obj.Position
-			globals.morigin = input.Position
-
-			local connection 
-			connection = input.Changed:Connect(function()
-				if input.UserInputState == Enum.UserInputState.End then
-					globals.dragging = false
-					souid = false
-					connection:Disconnect()
-					if extern then
-						if isColliding(parented,obj)  then
-							obj.Position = UDim2.new(0.5,0,0.5,0)
-							obj.Parent = parented
-
-						end
-					end
-				end
-			end)
-		else
-			if input.UserInputType == Enum.UserInputType.MouseButton1 and souid==false and obj.ZIndex < index then
-				obj.Parent = EmuUI
-				souid = true
-				index = obj.ZIndex
-				globals.dragging = true
-				globals.uiorigin = obj.Position
-				globals.morigin = input.Position
-				local connection 
-				connection = input.Changed:Connect(function()
-					if input.UserInputState == Enum.UserInputState.End then
-						globals.dragging = false
-						souid = false
-						connection:Disconnect()
-						if isColliding(obj,obj.Section)  then
-							obj = obj.Section
-						end
-					end
-				end)
-			end
-		end
+function UILIB:Load(name, img, direction)
+	local self = setmetatable({}, UILIB)
+	task.spawn(function()
+			local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.4, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.212, 0) })
+			local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.7, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.23, 0,0.012, 0) })
+			tw:Play()
+			tw.Completed:Wait()
+			task.wait(0.3)
+			tw2:Play()
 	end)
-	uis.InputChanged:Connect(function(input)
-		if input.UserInputType == Enum.UserInputType.MouseMovement and globals.dragging then
-			if extern then
-				if isColliding(obj,parented) then
-					TweenService:Create(parented , TweenInfo.new(0.26, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(19, 26, 35)}):Play()	
-				else
-					TweenService:Create(parented , TweenInfo.new(0.26, Enum.EasingStyle.Quad, Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(20,20,20)}):Play()	
-				end
-			end
-			local change = input.Position - globals.morigin
-			obj.Position = UDim2.new(globals.uiorigin.X.Scale,globals.uiorigin.X.Offset+change.X,globals.uiorigin.Y.Scale,globals.uiorigin.Y.Offset+change.Y)
-		end
-	end)
-end
-
-
-
-
-
-function OpenedColor(text,ColourDisplay,Action,def)
-
-	local COLORPALLETE = Instance.new("Frame")
-	local ANIMATEFRAME01 = Instance.new("Frame")
-	local Holder = Instance.new("Frame")
-	local BG = Instance.new("Frame")
-	local S12 = Instance.new("Frame")
-	local ColourWheel = Instance.new("ImageButton")
-	local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
-	local Picker = Instance.new("ImageLabel")
-	local S523 = Instance.new("UICorner")
-	local DarknessPicker = Instance.new("ImageButton")
-	local UIGradient = Instance.new("UIGradient")
-	local Slider = Instance.new("ImageLabel")
-	local UIAspectRatioConstraint_2 = Instance.new("UIAspectRatioConstraint")
-	local S13 = Instance.new("Frame")
-	local SDFH = Instance.new("UICorner")
-	local ColourDisplayBIG = Instance.new("ImageLabel")
-	local UIAspectRatioConstraint_3 = Instance.new("UIAspectRatioConstraint")
-	local SETCOLOR = Instance.new("ImageButton")
-	local Upper = Instance.new("Frame")
-	local TEMPLATETITLE20202 = Instance.new("TextLabel")
-	local linedecoupper = Instance.new("Frame")
-	local RESETALL = Instance.new('ImageButton')
-	RESETALL.Name = "RESETALL"
-	RESETALL.Parent = S13
-	RESETALL.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	RESETALL.BackgroundTransparency = 1.000
-	RESETALL.BorderSizePixel = 0
-	RESETALL.Position = UDim2.new(0.621510208, 0, 0.730036497, 0)
-	RESETALL.Size = UDim2.new(0, 15, 0, 15)
-	RESETALL.ZIndex = 23
-	RESETALL.Image = "rbxassetid://5640320478"
-
-	COLORPALLETE.Name = "COLORPALLETE"
-	COLORPALLETE.Parent = EmuUI
-	COLORPALLETE.AnchorPoint = Vector2.new(0.5, 0.5)
-	COLORPALLETE.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-	COLORPALLETE.BackgroundTransparency = 1.000
-	COLORPALLETE.BorderSizePixel = 0
-	COLORPALLETE.ClipsDescendants = true
-	COLORPALLETE.Position = UDim2.new(0.5, 0, 0.5, 0)
-	COLORPALLETE.Size = UDim2.new(0, 272, 0, 150)
-	COLORPALLETE.ZIndex = 2
-	COLORPALLETE.Visible = false
-
-	ANIMATEFRAME01.Name = "ANIMATEFRAME01"
-	ANIMATEFRAME01.Parent = COLORPALLETE
-	ANIMATEFRAME01.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ANIMATEFRAME01.Position = UDim2.new(-0.0257352963, 0, -0.00666669384, 0)
-	ANIMATEFRAME01.Size = UDim2.new(0, 285, 0, 159)
-	ANIMATEFRAME01.ZIndex = 99
-	ANIMATEFRAME01.BorderSizePixel = 0;
-
-	Holder.Name = "Holder"
-	Holder.Parent = COLORPALLETE
-	Holder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Holder.BackgroundTransparency = 1.000
-	Holder.BorderSizePixel = 0
-	Holder.Size = UDim2.new(0, 283, 0, 157)
-
-	BG.Name = "BG"
-	BG.Parent = Holder
-	BG.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-	BG.BorderColor3 = Color3.fromRGB(91, 133, 197)
-	BG.BorderSizePixel = 0
-	BG.Position = UDim2.new(0, 0, 0.157927245, 0)
-	BG.Size = UDim2.new(0, 272, 0, 125)
-
-	S12.Name = "S12"
-	S12.Parent = BG
-	S12.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-	S12.BorderSizePixel = 0
-	S12.Position = UDim2.new(0, 16, 0, 7)
-	S12.Size = UDim2.new(0, 156, 0, 107)
-	S12.ZIndex = 23
-
-	ColourWheel.Name = "ColourWheel"
-	ColourWheel.Parent = S12
-	ColourWheel.Active = false
-	ColourWheel.AnchorPoint = Vector2.new(0.5, 0.5)
-	ColourWheel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ColourWheel.BackgroundTransparency = 1.000
-	ColourWheel.BorderSizePixel = 0
-	ColourWheel.Position = UDim2.new(0.418737918, 0, 0.491852999, 0)
-	ColourWheel.Selectable = false
-	ColourWheel.Size = UDim2.new(0.599832177, 0, 0.86683917, 0)
-	ColourWheel.ZIndex = 25
-	ColourWheel.Image = "http://www.roblox.com/asset/?id=6020299385"
-
-	UIAspectRatioConstraint.Parent = ColourWheel
-	UIAspectRatioConstraint.AspectRatio = 1.000
-
-	Picker.Name = "Picker"
-	Picker.Parent = ColourWheel
-	Picker.AnchorPoint = Vector2.new(0.5, 0.5)
-	Picker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Picker.BackgroundTransparency = 1.000
-	Picker.BorderSizePixel = 0
-	Picker.Position = UDim2.new(0.5, 0, 0.5, 0)
-	Picker.Size = UDim2.new(0.0900257826, 0, 0.0900257975, 0)
-	Picker.Image = "http://www.roblox.com/asset/?id=3678860011"
-
-	S523.Name = "S523"
-	S523.Parent = S12
-
-	DarknessPicker.Name = "DarknessPicker"
-	DarknessPicker.Parent = S12
-	DarknessPicker.Active = false
-	DarknessPicker.AnchorPoint = Vector2.new(0.5, 0.5)
-	DarknessPicker.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	DarknessPicker.BackgroundTransparency = 1.000
-	DarknessPicker.BorderSizePixel = 0
-	DarknessPicker.Position = UDim2.new(0.854536772, 0, 0.554580271, 0)
-	DarknessPicker.Selectable = false
-	DarknessPicker.Size = UDim2.new(0.0943329856, 0, 0.88014394, 0)
-	DarknessPicker.ZIndex = 25
-	DarknessPicker.Image = "rbxassetid://3570695787"
-	DarknessPicker.ScaleType = Enum.ScaleType.Slice
-	DarknessPicker.SliceCenter = Rect.new(100, 100, 100, 100)
-	DarknessPicker.SliceScale = 0.120
-
-	UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))}
-	UIGradient.Rotation = 90
-	UIGradient.Parent = DarknessPicker
-
-	Slider.Name = "Slider"
-	Slider.Parent = DarknessPicker
-	Slider.AnchorPoint = Vector2.new(0.5, 0.5)
-	Slider.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Slider.BackgroundTransparency = 1.000
-	Slider.BorderSizePixel = 0
-	Slider.Position = UDim2.new(0.491197795, 0, 0.0733607039, 0)
-	Slider.Size = UDim2.new(1.28656352, 0, 0.0265010502, 0)
-	Slider.ZIndex = 2
-	Slider.Image = "rbxassetid://3570695787"
-	Slider.ImageColor3 = Color3.fromRGB(255, 74, 74)
-	Slider.ScaleType = Enum.ScaleType.Slice
-	Slider.SliceCenter = Rect.new(100, 100, 100, 100)
-	Slider.SliceScale = 0.120
-
-	UIAspectRatioConstraint_2.Parent = DarknessPicker
-	UIAspectRatioConstraint_2.AspectRatio = 0.157
-
-	S13.Name = "S13"
-	S13.Parent = BG
-	S13.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-	S13.BorderSizePixel = 0
-	S13.Position = UDim2.new(0, 182, 0, 7)
-	S13.Size = UDim2.new(0, 79, 0, 109)
-	S13.ZIndex = 23
-
-	SDFH.Name = "SDFH"
-	SDFH.Parent = S13
-
-	ColourDisplayBIG.Name = "ColourDisplayBIG"
-	ColourDisplayBIG.Parent = S13
-	ColourDisplayBIG.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	ColourDisplayBIG.BackgroundTransparency = 1.000
-	ColourDisplayBIG.BorderSizePixel = 0
-	ColourDisplayBIG.Position = UDim2.new(0.255401969, 0, 0.159329623, 0)
-	ColourDisplayBIG.Size = UDim2.new(0.473250836, 0, 0.530204058, 0)
-	ColourDisplayBIG.ZIndex = 25
-	ColourDisplayBIG.Image = "rbxassetid://3570695787"
-	ColourDisplayBIG.ScaleType = Enum.ScaleType.Slice
-	ColourDisplayBIG.SliceCenter = Rect.new(100, 100, 100, 100)
-	ColourDisplayBIG.SliceScale = 0.120
-
-	UIAspectRatioConstraint_3.Parent = ColourDisplayBIG
-
-
-	SETCOLOR.Name = "SETCOLOR"
-	SETCOLOR.Parent = S13
-	SETCOLOR.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	SETCOLOR.BackgroundTransparency = 1.000
-	SETCOLOR.BorderSizePixel = 0
-	SETCOLOR.Position = UDim2.new(0.231911927, 0, 0.730036736, 0)
-	SETCOLOR.Size = UDim2.new(0, 15, 0, 15)
-	SETCOLOR.ZIndex = 23
-	SETCOLOR.Image = "rbxassetid://1489284025"
-
-	Upper.Name = "Upper"
-	Upper.Parent = Holder
-	Upper.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Upper.BackgroundTransparency = 1.000
-	Upper.BorderColor3 = Color3.fromRGB(91, 133, 197)
-	Upper.BorderSizePixel = 0
-	Upper.Position = UDim2.new(1.07835966e-07, 0, 0, 0)
-	Upper.Size = UDim2.new(0, 271, 0, 23)
-	Upper.ZIndex = 2
-
-	TEMPLATETITLE20202.Name = "TEMPLATETITLE20202"
-	TEMPLATETITLE20202.Parent = Upper
-	TEMPLATETITLE20202.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TEMPLATETITLE20202.BackgroundTransparency = 1.000
-	TEMPLATETITLE20202.BorderSizePixel = 0
-	TEMPLATETITLE20202.Position = UDim2.new(0.00999999978, 0, 0.217391297, 0)
-	TEMPLATETITLE20202.Size = UDim2.new(0, 258, 0, 13)
-	TEMPLATETITLE20202.ZIndex = 3
-	TEMPLATETITLE20202.Font = Enum.Font.SourceSansSemibold
-	TEMPLATETITLE20202.Text = text
-	TEMPLATETITLE20202.TextColor3 = Color3.fromRGB(197, 197, 197)
-	TEMPLATETITLE20202.TextSize = 16.000
-	TEMPLATETITLE20202.TextXAlignment = Enum.TextXAlignment.Left
-
-	linedecoupper.Name = "linedecoupper"
-	linedecoupper.Parent = Holder
-	linedecoupper.BackgroundColor3 = Color3.fromRGB(91, 133, 197)
-	linedecoupper.BorderColor3 = Color3.fromRGB(91, 133, 197)
-	linedecoupper.BorderSizePixel = 0
-	linedecoupper.Position = UDim2.new(0, 0, 0.150589287, 0)
-	linedecoupper.Size = UDim2.new(0.961130738, 0, 0, 1)
-	linedecoupper.ZIndex = 3
-	if COLORPALLETE.Visible == true then
-		ANIMATEFRAME01:TweenPosition(UDim2.new(-0.026,0,-0.007,0),'Out','Quint',0.2,true);
-		wait(.2)
-		COLORPALLETE.BackgroundTransparency = 1;
-		Holder.Visible = false
-		ANIMATEFRAME01:TweenPosition(UDim2.new(1.077,0,-0.007,0),'Out','Quint',0.2,true);
-		wait(.2)
-		COLORPALLETE.Visible = false
-		ANIMATEFRAME01.Visible = false
-	end
-	local uis = game:GetService("UserInputService")
-	ANIMATEFRAME01.Visible =true
-	COLORPALLETE.Visible = true
-	ANIMATEFRAME01.Position = UDim2.new(-1.085,0,-0.013,0)
-	Holder.Visible = false
-
-	ANIMATEFRAME01:TweenPosition(UDim2.new(-0.026,0,-0.007,0),'Out','Quint',0.2,true);
-	wait(.2)
-	COLORPALLETE.Visible = true
-	COLORPALLETE.BackgroundTransparency = 0;
-	Holder.Visible = true
-	ANIMATEFRAME01:TweenPosition(UDim2.new(1.077,0,-0.007,0),'Out','Quint',0.2,true);
-	wait(.2)
-	ANIMATEFRAME01.Position = UDim2.new(-1.085,0,-0.013,0)
-	local hsv;
-
-	SETCOLOR.MouseButton1Click:Connect(function()
-		ANIMATEFRAME01:TweenPosition(UDim2.new(-0.026,0,-0.007,0),'Out','Quint',0.2,true);
-		wait(.2)
-		COLORPALLETE.BackgroundTransparency = 1;
-		Holder.Visible = false
-		ANIMATEFRAME01:TweenPosition(UDim2.new(1.077,0,-0.007,0),'Out','Quint',0.2,true);
-		wait(.2)
-		ANIMATEFRAME01.Visible = false
-		ColourDisplay.ImageColor3 = ColourDisplayBIG.ImageColor3
-		COLORPALLETE.Visible = false
-
-		pcall(function()
-            Action( Color3.fromRGB(ColourDisplayBIG.ImageColor3.R * 200 ,ColourDisplayBIG.ImageColor3.G * 200 ,ColourDisplayBIG.ImageColor3.B* 200) )
+        task.spawn(function()
+	     while true do
+		task.wait(0.1)
+		parent.TopBar.ProfileMenu.Clock.TextLabel.Text = os.date("%H:%m")
+	     end
         end)
+	parent.TopBar.ProfileMenu.Title.TextLabel.Text = name
+	if img then
+		parent.MainBar.Logo.Image = img
+	elseif img == "Default" then
 
-	end)
-
-	RESETALL.MouseButton1Click:Connect(function()
-		ANIMATEFRAME01:TweenPosition(UDim2.new(-0.026,0,-0.007,0),'Out','Quint',0.2,true);
-		wait(.2)
-		COLORPALLETE.BackgroundTransparency = 1;
-		Holder.Visible = false
-		ANIMATEFRAME01:TweenPosition(UDim2.new(1.077,0,-0.007,0),'Out','Quint',0.2,true);
-		wait(.2)
-		COLORPALLETE.Visible = false
-
-		ANIMATEFRAME01.Visible = false
-
-	end)
-	local buttonDown = false
-	local movingSlider = false
-
-
-	local function updateColour(centreOfWheel)
-
-		local colourPickerCentre = Vector2.new(
-			Picker.AbsolutePosition.X + (Picker.AbsoluteSize.X/2),
-			Picker.AbsolutePosition.Y + (Picker.AbsoluteSize.Y/2)
-		)
-		local h = (math.pi - math.atan2(colourPickerCentre.Y - centreOfWheel.Y, colourPickerCentre.X - centreOfWheel.X)) / (math.pi * 2)
-
-		local s = (centreOfWheel - colourPickerCentre).Magnitude / (ColourWheel.AbsoluteSize.X/2)
-
-		local v = math.abs((Slider.AbsolutePosition.Y - DarknessPicker.AbsolutePosition.Y) / DarknessPicker.AbsoluteSize.Y - 1)
-
-
-		hsv = Color3.fromHSV(math.clamp(h, 0, 1), math.clamp(s, 0, 1), math.clamp(v, 0, 1))
-
-
-		ColourDisplayBIG.ImageColor3 = hsv
-		UIGradient.Color = ColorSequence.new{
-			ColorSequenceKeypoint.new(0, hsv), 
-			ColorSequenceKeypoint.new(1, Color3.new(0, 0, 0))
-		}
-
-	end
-
-
-	ColourWheel.MouseButton1Down:Connect(function()
-		buttonDown = true
-	end)
-
-	DarknessPicker.MouseButton1Down:Connect(function()
-		movingSlider = true
-	end)
-
-
-	uis.InputEnded:Connect(function(input)
-
-		if input.UserInputType ~= Enum.UserInputType.MouseButton1 then return end
-
-		buttonDown = false
-		movingSlider = false
-	end)
-
-
-	uis.InputChanged:Connect(function(input)
-
-		if input.UserInputType ~= Enum.UserInputType.MouseMovement then return end
-
-
-		local mousePos = uis:GetMouseLocation() - Vector2.new(0, game:GetService("GuiService"):GetGuiInset().Y)
-
-		local centreOfWheel = Vector2.new(ColourWheel.AbsolutePosition.X + (ColourWheel.AbsoluteSize.X/2), ColourWheel.AbsolutePosition.Y + (ColourWheel.AbsoluteSize.Y/2))
-
-		local distanceFromWheel = (mousePos - centreOfWheel).Magnitude
-
-
-		if distanceFromWheel <= ColourWheel.AbsoluteSize.X/2 and buttonDown then
-
-			Picker.Position = UDim2.new(0, mousePos.X - ColourWheel.AbsolutePosition.X, 0, mousePos.Y - ColourWheel.AbsolutePosition.Y)
-
-
-		elseif movingSlider then
-
-			Slider.Position = UDim2.new(Slider.Position.X.Scale, 0, 0, 
-				math.clamp(
-					mousePos.Y - DarknessPicker.AbsolutePosition.Y, 
-					0, 
-					DarknessPicker.AbsoluteSize.Y)
-			)	
+	else
+		parent.MainBar.Logo.Image = ""
 		end
 
-		updateColour(centreOfWheel)
 
-	end)
-	draggable(COLORPALLETE)
-end
-
-
-local MAIN = Instance.new("Frame")
-local BG = Instance.new("Frame")
-local Upper = Instance.new("Frame")
-local UIListLayout = Instance.new("UIListLayout")
-local linedecoupper = Instance.new("Frame")
-local DOWNER = Instance.new("Frame")
-local WEBSITE = Instance.new("TextLabel")
-local LABEL2 = Instance.new("TextLabel")
-local linedecoDOWNER = Instance.new("Frame")
-local UPPERLABEL = Instance.new("TextLabel")
-local limit1 = Instance.new("Frame")
-
-
-
---Properties:
-
-EmuUI.Name = "EmuUI"
-EmuUI.Parent = game:GetService("CoreGui")
-EmuUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-EmuUI.ResetOnSpawn = false
-
-MAIN.Name = "MAIN"
-MAIN.Parent = EmuUI
-MAIN.AnchorPoint = Vector2.new(0.5, 0.5)
-MAIN.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-MAIN.BorderSizePixel = 0
-MAIN.Position = UDim2.new(0.285505116, 0, 0.649934769, 0)
-MAIN.Size = UDim2.new(0, 588, 0, 415)
-MAIN.ZIndex = 2
-
-BG.Name = "BG"
-BG.Parent = MAIN
-BG.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-BG.BorderColor3 = Color3.fromRGB(91, 133, 197)
-BG.BorderSizePixel = 0
-BG.Position = UDim2.new(0, 0, 0.0615355708, 0)
-BG.Size = UDim2.new(0, 588, 0, 365)
-BG.ClipsDescendants = true
-
-Upper.Name = "Upper"
-Upper.Parent = MAIN
-Upper.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Upper.BackgroundTransparency = 1.000
-Upper.BorderColor3 = Color3.fromRGB(91, 133, 197)
-Upper.BorderSizePixel = 0
-Upper.Size = UDim2.new(0, 600, 0, 23)
-Upper.ZIndex = 2
-
-UIListLayout.Parent = Upper
-UIListLayout.FillDirection = Enum.FillDirection.Vertical
-UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Left
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-
-linedecoupper.Name = "linedecoupper"
-linedecoupper.Parent = MAIN
-linedecoupper.BackgroundColor3 = Color3.fromRGB(91, 133, 197)
-linedecoupper.BorderColor3 = Color3.fromRGB(91, 133, 197)
-linedecoupper.BorderSizePixel = 0
-linedecoupper.Position = UDim2.new(0, 0, 0.0591259636, 0)
-linedecoupper.Size = UDim2.new(1, 0, 0, 1)
-linedecoupper.ZIndex = 3
-
-DOWNER.Name = "DOWNER"
-DOWNER.Parent = MAIN
-DOWNER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-DOWNER.BackgroundTransparency = 1.000
-DOWNER.BorderColor3 = Color3.fromRGB(91, 133, 197)
-DOWNER.BorderSizePixel = 0
-DOWNER.Position = UDim2.new(0, 0, 0.943463266, 0)
-DOWNER.Size = UDim2.new(0, 600, 0, 23)
-DOWNER.ZIndex = 2
-
-WEBSITE.Name = "Discord"
-WEBSITE.Parent = DOWNER
-WEBSITE.AnchorPoint = Vector2.new(0.5, 0.5)
-WEBSITE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-WEBSITE.BackgroundTransparency = 1.000
-WEBSITE.BorderSizePixel = 0
-WEBSITE.Position = UDim2.new(0.177174687, 0, 0.499190629, 0)
-WEBSITE.Size = UDim2.new(0, 197, 0, 23)
-WEBSITE.ZIndex = 3
-WEBSITE.Font = Enum.Font.ArialBold
-WEBSITE.Text = "UI Maker Discord: https://discord.gg/5DN8gzm34B" 
-WEBSITE.TextColor3 = Color3.fromRGB(199, 199, 199)
-WEBSITE.TextSize = 14.000
-WEBSITE.TextXAlignment = Enum.TextXAlignment.Left
-
-LABEL2.Name = "LABEL2"
-LABEL2.Parent = DOWNER
-LABEL2.AnchorPoint = Vector2.new(0.5, 0.5)
-LABEL2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-LABEL2.BackgroundTransparency = 1.000
-LABEL2.BorderSizePixel = 0
-LABEL2.Position = UDim2.new(0.795508027, 0, 0.455712378, 0)
-LABEL2.Size = UDim2.new(0, 197, 0, 23)
-LABEL2.ZIndex = 3
-LABEL2.Font = Enum.Font.ArialBold
-LABEL2.Text = "Alpha build / âˆž days left"
-LABEL2.TextColor3 = Color3.fromRGB(199, 199, 199)
-LABEL2.TextSize = 14.000
-LABEL2.TextXAlignment = Enum.TextXAlignment.Right
-
-linedecoDOWNER.Name = "linedecoDOWNER"
-linedecoDOWNER.Parent = MAIN
-linedecoDOWNER.BackgroundColor3 = Color3.fromRGB(91, 133, 197)
-linedecoDOWNER.BorderColor3 = Color3.fromRGB(91, 133, 197)
-linedecoDOWNER.BorderSizePixel = 0
-linedecoDOWNER.Position = UDim2.new(0, 0, 0.941053629, 0)
-linedecoDOWNER.Size = UDim2.new(1, 0, 0, 1)
-linedecoDOWNER.ZIndex = 10
-
-UPPERLABEL.Name = "UPPERLABEL"
-UPPERLABEL.Parent = MAIN
-UPPERLABEL.AnchorPoint = Vector2.new(0.5, 0.5)
-UPPERLABEL.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-UPPERLABEL.BackgroundTransparency = 1.000
-UPPERLABEL.BorderSizePixel = 0
-UPPERLABEL.Position = UDim2.new(0.906523705, 0, 0.0267967135, 0)
-UPPERLABEL.Size = UDim2.new(0, 84, 0, 23)
-UPPERLABEL.ZIndex = 3
-UPPERLABEL.Font = Enum.Font.SourceSansSemibold
-UPPERLABEL.Text = "GUI By Jeikaru"
-UPPERLABEL.TextColor3 = Color3.fromRGB(199, 199, 199)
-UPPERLABEL.TextSize = 17.000
-UPPERLABEL.TextXAlignment = Enum.TextXAlignment.Right
-
-limit1.Name = "limit1"
-limit1.Parent = MAIN
-limit1.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-limit1.BackgroundTransparency = 1.000
-limit1.BorderSizePixel = 0
-limit1.Position = UDim2.new(0, 0, 0.0615355708, 0)
-limit1.Size = UDim2.new(0, 588, 0, 364)
-limit1.ZIndex = 5
-
-
-repeat wait() until game.Players.LocalPlayer
-
-local library = {};
-library.sections = {};
-local totalSections = 0;
-
-function library:ChangeWeb(site)
-	WEBSITE.Text = site
-end
-function library:ChangeGame(gamee)
-	LABEL2.Text = gamee
-end
-
-local tweenTime = 0.25
-local tweenInfo = TweenInfo.new(
-	tweenTime,
-	Enum.EasingStyle.Linear,
-	Enum.EasingDirection.Out
-)
-
-function AddRipple(button,ael,ayo)
-	ayo = ayo or Color3.fromRGB(56, 56, 56)
-	button.ClipsDescendants = true
-	local obj = button
-	local function Ripple()
-		spawn(
-			function()
-				local Mouse = game.Players.LocalPlayer:GetMouse()
-				local Circle = Instance.new("ImageLabel")
-				Circle.Name = "Circle"
-				Circle.Parent = obj
-				Circle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				Circle.BackgroundTransparency = 1.000
-				Circle.ZIndex = 10
-				Circle.Image = "rbxassetid://266543268"
-				Circle.ImageColor3 = Color3.fromRGB(211, 211, 211)
-				Circle.ImageTransparency = 0.6
-				local NewX, NewY = Mouse.X - Circle.AbsolutePosition.X, Mouse.Y - Circle.AbsolutePosition.Y
-				Circle.Position = UDim2.new(0, NewX, 0, NewY)
-				local Size = 0
-				if obj.AbsoluteSize.X > obj.AbsoluteSize.Y then
-					Size = obj.AbsoluteSize.X * 1
-				elseif obj.AbsoluteSize.X < obj.AbsoluteSize.Y then
-					Size = obj.AbsoluteSize.Y * 1
-				elseif obj.AbsoluteSize.X == obj.AbsoluteSize.Y then
-					Size = obj.AbsoluteSize.X * 1
-				end
-				Circle:TweenSizeAndPosition(
-					UDim2.new(0, Size, 0, Size),
-					UDim2.new(0.5, -Size / 2, 0.5, -Size / 2),
-					"Out",
-					"Quad",
-					0.2,
-					false
-				)
-				for i = 1, 15 do
-					Circle.ImageTransparency = Circle.ImageTransparency + 0.05
-					wait()
-				end
-				Circle:Destroy()
-			end
-		)
-	end
-	local Background = Instance.new("Frame")
-	local CornerRadius = Instance.new("UICorner")
-	Background.Name = "Background"
-	Background.Parent = button
-	Background.AnchorPoint = Vector2.new(0.5, 0.5)
-	Background.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Background.BackgroundTransparency = 1.000
-	Background.ClipsDescendants = true
-	Background.Position = UDim2.new(0.5, 0, 0.5, 0)
-	Background.Size = UDim2.new(1, 0, 1, 0)
-	CornerRadius.CornerRadius = UDim.new(0, 4)
-	CornerRadius.Name = "CornerRadius"
-	CornerRadius.Parent = Background
-
-	local mouse = game.Players.LocalPlayer:GetMouse()
-
-	local background = button:WaitForChild("Background")
-
-	local active = false
-	local hovering = false
-
-	local function OnMouseButton1Down()
-		local backgroundFadeIn = TweenService:Create(ael, tweenInfo, { TextColor3 =  ayo})
-		backgroundFadeIn:Play()
-	end
-
-	local function OnMouseButton1Up()
-		local backgroundFadeIn = TweenService:Create(ael, tweenInfo, { TextColor3 = Color3.fromRGB(152, 152, 152) })
-		backgroundFadeIn:Play()
-	end
-
-	local function OnMouseEnter()
-		hovering = true
-
-		local backgroundFadeIn = TweenService:Create(ael, tweenInfo, { TextColor3 = Color3.fromRGB(152, 152, 152) })
-
-		backgroundFadeIn:Play()
-
-		backgroundFadeIn.Completed:Wait()
-
-		local backgroundFadeOut = TweenService:Create(ael, tweenInfo, {TextColor3 = Color3.fromRGB(197, 197, 197)})
-
-		repeat wait() until not hovering
-
-		backgroundFadeOut:Play()
-	end
-
-
-	local function OnMouseLeave()
-		hovering = false
-		active = false
-	end
-	button.MouseButton1Down:Connect(OnMouseButton1Down)
-	button.MouseButton1Up:Connect(OnMouseButton1Up)
-	button.MouseEnter:Connect(OnMouseEnter)
-	button.MouseLeave:Connect(OnMouseLeave)
-	button.MouseButton1Click:Connect(Ripple)
-end
-local function getsize(frame)
-	local size = 0;
-	for i=1,#frame do
-		local s = frame:sub(i,i)
-		if string.upper(s) == s then
-			if s == 'I' then
-				size+=4
-			else
-				size+=12;
-			end
-		else
-			if s == 'i' then
-				size+= 4
-			else
-				size += 10
-			end
-		end
-	end
-	return size
-end
-
-local s,e = pcall(function()
-	local k = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-end)
-
-if not s or e then
-	library.ms = 'err'
-else
-	spawn(function()
-		game:GetService("RunService").RenderStepped:Connect(function()
-			local plr = game:GetService('Players').LocalPlayer
-			library.ms =  game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-		end)
-	end)
-end
-
-
-
-function library:AddWatermark(Text)
-	local intern = {}
-	local size
-
-	size=(#Text) * 7
-
-	--[MAIN]--
-	local obj1 = Instance.new("Frame")
-	obj1.AnchorPoint = Vector2.new(0, 0.5)
-	obj1.BackgroundColor3 = Color3.new(0.0862745, 0.0862745, 0.0862745)
-	obj1.BorderSizePixel = 0
-	obj1.Position = UDim2.new(0.0109301507, 0, 0.973039031, 0)
-	obj1.Size = UDim2.new(0, size, 0, 28)
-	obj1.ZIndex = 8
-	obj1.Name = [[MAIN]]
-	obj1.Visible = true
-	obj1.ClipsDescendants = true
-	obj1.Parent = EmuUI
-	--[UIStroke]--
-	local obj2 = Instance.new("UIStroke", obj1)
-	obj2.Color = Color3.new(0.309804, 0.458824, 0.67451)
-
-	--[MAIN]--
-	local obj3 = Instance.new("Frame", obj1)
-	obj3.AnchorPoint = Vector2.new(0.5, 0.5)
-	obj3.BackgroundColor3 = Color3.new(0.113725, 0.113725, 0.113725)
-	obj3.BorderSizePixel = 0
-	obj3.Position = UDim2.new(0.5, 0, 0.5, 0)
-	obj3.Size = UDim2.new(1, -6, 1, -6)
-	obj3.ZIndex = 7
-	obj3.Name = [[MAIN]]
-
-	--[TextLabel]--
-	local obj4 = Instance.new("TextLabel", obj3)
-	obj4.BackgroundColor3 = Color3.new(1, 1, 1)
-	obj4.BackgroundTransparency = 1
-	obj4.BorderSizePixel = 0
-	obj4.Position = UDim2.new(0.0215827357, 0, 0, 0)
-	obj4.Size = UDim2.new(0, 325, 0, 22)
-	obj4.Font = Enum.Font.SourceSansSemibold
-	obj4.Text = Text
-	obj4.TextColor3 = Color3.new(0.772549, 0.772549, 0.772549)
-	obj4.TextSize = 16
-	obj4.TextXAlignment = Enum.TextXAlignment.Left
-
-	function intern:ChangeText(text)
-		local size = #text * 7 + 5
-		obj4.Text = text;
-		Text = text
-		obj1.Size = UDim2.new(0, size, 0, 28)
-	end
-	local can = true
-	function intern:Visible(val)
-		if val  == nil then
-			return obj1.Visible
-		end
-		if can then
-			val=not val
-			if not val then
-				can = not can
-				obj1.Visible = true
-				wait(.5)
-				can = not can
-			else
-				can = not can
-
-				obj1.Visible =false
-				wait(.5)
-				can = not can
-			end
-		end
-
-	end
-	return intern
-end
-
-function library:Init(name)
-    for i,v in pairs(Upper:GetChildren()) do
-        if v:IsA('TextButton') then
-            if v.Name == name then
-                TweenService:Create(v , TweenInfo.new(1, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(210, 210, 210)}):Play()	
-            else
-                TweenService:Create(v , TweenInfo.new(1, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(138, 138, 138)}):Play()	
-            end
-        end
-    end
-    for i,v in pairs(limit1:GetChildren()) do
-        if v:IsA('Frame') or v:IsA('ScrollingFrame') then
-            if v.Name == name then
-                v.Visible = true
-            else
-                v.Visible = false
-            end
-        end
-    end
-end
-
-function library:AddWindow(text)
-	local sec = {}
-	text=text or 'Not Def'
-
-	local HOLDER = Instance.new("ScrollingFrame")
-	local _LEFT = Instance.new("Frame")
-	local LUIL = Instance.new("UIListLayout")
-	local _RIGHT = Instance.new("Frame")
-	local RUIL = Instance.new("UIListLayout")
-	local TEMPLATE_TEXT = Instance.new("TextButton")
-
-	TEMPLATE_TEXT.Name = text
-	TEMPLATE_TEXT.Parent = Upper
-	TEMPLATE_TEXT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TEMPLATE_TEXT.BackgroundTransparency = 1.000
-	TEMPLATE_TEXT.BorderSizePixel = 0
-	TEMPLATE_TEXT.Position = UDim2.new(0, 0, 0.281214178, 0)
-	TEMPLATE_TEXT.Size = UDim2.new(0, 50, 0, 13)
-	TEMPLATE_TEXT.ZIndex = 3
-	TEMPLATE_TEXT.Font = Enum.Font.SourceSansSemibold
-	TEMPLATE_TEXT.Text = text
-	TEMPLATE_TEXT.TextColor3 = Color3.fromRGB(138, 138, 138)
-	TEMPLATE_TEXT.TextSize = 16.000
-	TEMPLATE_TEXT.Size = UDim2.new(0,getsize(text),0,13)
-
-
-	HOLDER.Name = text
-	HOLDER.Parent = limit1
-	HOLDER.Active = true
-	HOLDER.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	HOLDER.BackgroundTransparency = 1.000
-	HOLDER.BorderSizePixel = 0
-	HOLDER.ClipsDescendants = false
-	HOLDER.Position = UDim2.new(0,0,0.019,0)
-	HOLDER.Visible = false
-	HOLDER.Size = UDim2.new(0, 588, 0, 359)
-	HOLDER.BottomImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-	HOLDER.CanvasSize = UDim2.new(0, 0, 0, 0)
-	HOLDER.ScrollBarThickness = 5
-	HOLDER.TopImage = "rbxasset://textures/ui/Scroll/scroll-middle.png"
-
-	_LEFT.Name = "_LEFT"
-	_LEFT.Parent = HOLDER
-	_LEFT.AnchorPoint = Vector2.new(0.5, 0.5)
-	_LEFT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	_LEFT.BackgroundTransparency = 1.000
-	_LEFT.BorderSizePixel = 0
-	_LEFT.Position = UDim2.new(0.249334633, 0, 0.508299172, 0)
-	_LEFT.Size = UDim2.new(0.5, 0, 0.972153783, 0)
-	_LEFT.ZIndex = 3
-	_LEFT.ClipsDescendants = true
-
-	LUIL.Name = "LUIL"
-	LUIL.Parent = _LEFT
-	LUIL.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	LUIL.SortOrder = Enum.SortOrder.LayoutOrder
-	LUIL.Padding = UDim.new(0, 5)
-
-	_RIGHT.Name = "_RIGHT"
-	_RIGHT.Parent = HOLDER
-	_RIGHT.AnchorPoint = Vector2.new(0.5, 0.5)   
-	_RIGHT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	_RIGHT.BackgroundTransparency = 1.000
-	_RIGHT.BorderSizePixel = 0
-	_RIGHT.Position = UDim2.new(0.749334514, 0, 0.508299172, 0)
-	_RIGHT.Size = UDim2.new(0.5, 0, 0.972153783, 0)
-	_RIGHT.ZIndex = 3
-	_RIGHT.ClipsDescendants = true
-
-	RUIL.Name = "RUIL"
-	RUIL.Parent = _RIGHT
-	RUIL.HorizontalAlignment = Enum.HorizontalAlignment.Center
-	RUIL.SortOrder = Enum.SortOrder.LayoutOrder
-	RUIL.Padding = UDim.new(0, 5)
-
-	local fghk = Instance.new("UIListLayout")
-
-	TEMPLATE_TEXT.MouseButton1Click:Connect(function()
-		for i,v in pairs(Upper:GetChildren()) do
-			if v:IsA('TextButton') then
-				TweenService:Create(v , TweenInfo.new(0.26, Enum.EasingStyle.Quad    , Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(138, 138, 138)}):Play()	
-			end
-		end
-		TweenService:Create(TEMPLATE_TEXT , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(210, 210, 210)}):Play()	
-		for i,v in pairs(limit1:GetChildren()) do
-			if v:IsA('Frame') or v:IsA('ScrollingFrame') then
-				v.Visible = false
-			end
-		end
-		HOLDER.Visible = true
-	end)
-
-	fghk.Name = "fghk"
-	fghk.Parent = HOLDER
-	fghk.FillDirection = Enum.FillDirection.Horizontal
-	fghk.SortOrder = Enum.SortOrder.LayoutOrder
-	local function getlarger(num)
-		local LeftSize =  LUIL.AbsoluteContentSize.Y
-		local RightSize =  RUIL.AbsoluteContentSize.Y
-		if num == 1 then
-			if LeftSize > RightSize then
-				return 'l'    
-			elseif LeftSize < RightSize then
-				return 'r'
-			elseif LeftSize == RightSize then
-				return 'r'
-			end
-		elseif num == 2 then
-			return {l=LeftSize,r=RightSize}
-		else
-			return ''
-		end
-	end
-	local function UpdateMainSize(f,anim)
-		HOLDER.ClipsDescendants = true
-
-		if getlarger(1) == 'l' then
-			if anim then
-				TweenService:Create(HOLDER, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {CanvasSize = UDim2.fromOffset(0, getlarger(2).l + 15)}):Play()
-			else   
-				HOLDER.CanvasSize = UDim2.fromOffset(0, getlarger(2).l + 15)
-
-			end
-
-		elseif getlarger(1) == 'r' then
-			if anim then
-				TweenService:Create(HOLDER, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {CanvasSize = UDim2.fromOffset(0, getlarger(2).r + 15)}):Play()
-			else
-				HOLDER.CanvasSize = UDim2.fromOffset(0, getlarger(2).r + 15)
-				HOLDER.CanvasSize = UDim2.fromOffset(0, getlarger(2).r + 15)
-			end
-		end
-
-	end
-
-	local function GetSide(typ,input)   
-		if typ == 1 then
-			local parented;
-			local s;
-			if (totalSections%2 == 0) then
-				parented = _RIGHT
-				s= RUIL
-			else
-				parented = _LEFT
-				s= LUIL
-			end
-			return parented,s
-		elseif typ == 2 and input then
-			if tonumber(input) == nil then   
-				if input == 'Right' or input == 'R' or input == 'r' then
-					return _RIGHT,RUIL
-				end
-				if input == 'Left' or input == 'L' or input == 'l' then
-					return _LEFT,LUIL
-				end
-			else
-				if input == 1 then
-					return _LEFT,LUIL
-				elseif input == 2 then
-					return _RIGHT,RUIL   
-				else
-					return GetSide(1);
-				end
-			end
-		else
-			return GetSide(1);
-		end
-	end
-	local section_info = {};
-	function sec:UpdateSize()
-		UpdateMainSize()
-	end
-	local function AutoFit(section,list)
-		if section and list then
-			local x,y =  section.AbsoluteSize.X,list.AbsoluteContentSize.Y  
-			local lefts,ls = 0,{};
-			local rights,rs = 0,{};
-			section.Size = UDim2.fromOffset(x,  y + 8) + UDim2.new(0,0,0,23)
-
-			UpdateMainSize()
-		end
-
-	end
-
-	function sec:AddSection(Texto,side)
-		local inside = {};
-		Texto=Texto or 'Not Defined'
-		totalSections+=1;
-
-		local _PARENT,LIST =  GetSide(2,side)
-		local SECTIONHOLDER = Instance.new("Frame")
-		local Section = Instance.new("Frame")
-		local Z_Holder = Instance.new("Frame")
-		local HOLDER_2 = Instance.new("Frame")    
-		local SECTION2UILIB = Instance.new("UIListLayout")
-		local F_line = Instance.new("Frame")
-		local A_label = Instance.new("TextLabel")
-		local SECTIONIOL = Instance.new("UIListLayout")
-		local us = Instance.new('UIStroke');
-
-		us.ApplyStrokeMode = Enum.ApplyStrokeMode.Contextual
-		us.LineJoinMode = Enum.LineJoinMode.Round
-		us.Thickness = 1;
-		us.Transparency =0;
-		us.Parent  = Section;
-		us.Name = '_STROKE_'
-		SECTIONHOLDER.Name = Texto
-		SECTIONHOLDER.Parent = _PARENT
-		SECTIONHOLDER.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-		SECTIONHOLDER.BorderSizePixel = 0      
-		SECTIONHOLDER.Position = UDim2.new(0.0289115645, 0, -4.23979145e-08, 0)
-		SECTIONHOLDER.Size = UDim2.new(0, 275, 0, 138)
-		SECTIONHOLDER.ZIndex = 3	
-
-		if library.sections[SECTIONHOLDER.Name] ~= nil then
-			print('ERROR: FUNCTION (AddSection): SECTIONS MUST HAVE DIFFERENT NAMES!!!')
-			return 
-		else
-			library.sections[SECTIONHOLDER.Name] = _PARENT
-		end
-
-		Section.Name = "Section"
-		Section.Parent = SECTIONHOLDER
-		Section.AnchorPoint = Vector2.new(0.5, 0.5)
-		Section.BackgroundColor3 = Color3.fromRGB(33, 33, 33)
-		Section.BorderSizePixel = 0
-		Section.ClipsDescendants = true
-		Section.Position = UDim2.new(0.498745143, 0, 0.502499998, 0)    
-		Section.Size = UDim2.new(1.003,0,1,0)
-		Section.ZIndex = 4
-
-		Z_Holder.Name = "Z_Holder"
-		Z_Holder.Parent = Section
-		Z_Holder.AnchorPoint = Vector2.new(0.5, 0.5)
-		Z_Holder.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
-		Z_Holder.BorderSizePixel = 0
-		Z_Holder.Position = UDim2.new(2.44783831, 0, 3.13320923, 0)
-		Z_Holder.Size = UDim2.new(1, 0, 0.965465486, 0)
-		Z_Holder.ZIndex = 4
-
-		HOLDER_2.Name = "HOLDER"
-		HOLDER_2.Parent = Z_Holder
-		HOLDER_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-		HOLDER_2.BackgroundTransparency = 1.000
-		HOLDER_2.Position = UDim2.new(0, 4, 0, 5)
-		HOLDER_2.Size = UDim2.new(0.981999993, 0, 0.957000017, 0)   
-		HOLDER_2.ZIndex = 5
-
-		SECTION2UILIB.Name = "SECTION2UILIB"
-		SECTION2UILIB.Parent = HOLDER_2
-		SECTION2UILIB.SortOrder = Enum.SortOrder.LayoutOrder
-		SECTION2UILIB.HorizontalAlignment = Enum.HorizontalAlignment.Center
-		SECTION2UILIB.Padding = UDim.new(0, 5)
-
-		F_line.Name = "F_line"
-		F_line.Parent = Section
-		F_line.BackgroundColor3 = Color3.fromRGB(91, 133, 197)
-		F_line.BorderColor3 = Color3.fromRGB(91, 133, 197)
-		F_line.BorderSizePixel = 0
-		F_line.Position = UDim2.new(0, 0, 0.099530004, 0)
-		F_line.Size = UDim2.new(1, 0, 0, 1)
-		F_line.ZIndex = 6
-
-		A_label.Name = "A_label"
-		A_label.Parent = Section
-		A_label.AnchorPoint = Vector2.new(0.5, 0.5)
-		A_label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)  
-		A_label.BackgroundTransparency = 1.000
-		A_label.BorderSizePixel = 0
-		A_label.Position = UDim2.new(0.512401581, 0, 0.0548184477, 0)
-		A_label.Size = UDim2.new(0, 267, 0, 22)
-		A_label.ZIndex = 3
-		A_label.Font = Enum.Font.SourceSansSemibold
-		A_label.Text = Texto
-		A_label.TextColor3 = Color3.fromRGB(221, 221, 221)
-		A_label.TextSize = 17.000
-		A_label.TextXAlignment = Enum.TextXAlignment.Left
-
-		SECTIONIOL.Name = "SECTIONIOL"
-		SECTIONIOL.Parent = Section
-		SECTIONIOL.HorizontalAlignment = Enum.HorizontalAlignment.Center
-
-		SECTIONHOLDER.Size = UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 8) + UDim2.new(0,0,0,23)
-		_PARENT.Size = UDim2.new(_PARENT.Size.X.Scale, _PARENT.Size.X.Offset , 0 ,LIST.AbsoluteContentSize.Y + 15);
-
-		AutoFit()
-		--TweenService:Create(closeSection , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {Rotation = 0}):Play()	
-		UpdateMainSize()
-
-		function inside:AddTextBox(Text,placeholder, CTOF, Type, Action)
-
-			Text=Text or 'Not Defined'
-			placeholder = placeholder or 'Input Here'
-			CTOF = CTOF or false
-			Type = Type or 2
-
-			local filter = '%W+' 
-			local filter2 = '%p+'
-			local onlunum = '%D+'   
-			local onlychars = '%A+'
-
-			local function colador(str,type)
-				local str =str
-				if type == 1 then
-					str= str:gsub(onlunum, ''); -- exclude a-Z
-				end
-				if type == 2 then
-					str= str:gsub(filter2, ''); -- exclude special characters (~!@#$%^&*()_+.,<>?:"}{-=`")
-				end
-				if type == 3 then
-					str= str:gsub(filter, ''); -- exclude special characters + space bar (~!@#$%^&*()_+.,<>?:"}{-=`"  )
-				end
-				if type == 4 then
-					str= str:gsub(onlychars, ''); -- exclude special characters + numbers + space bar (~!@#$%^&*()_+.,<>?:"}{-=`"  0-9) 
-				end
-				if type == 5 then
-					str = str   
-				end
-				return str
-			end
-
-			--[TemplateTexstbox]--
-			local obj1 = Instance.new("Frame")
-			obj1.BackgroundColor3 = Color3.new(1, 1, 1)
-			obj1.BackgroundTransparency = 1
-			obj1.BorderSizePixel = 0
-			obj1.Position = UDim2.new(0.155858055, 0, 0.392140955, 0)
-			obj1.Size = UDim2.new(0, 239, 0, 22)
-			obj1.ZIndex = 14
-			obj1.Name = [[TemplateTexstbox]]
-			obj1.Parent = HOLDER_2
-			--[color]--
-			local obj2 = Instance.new("Frame", obj1)   
-			obj2.AnchorPoint = Vector2.new(1, 0.5)
-			obj2.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
-			obj2.BorderSizePixel = 0
-			obj2.Position = UDim2.new(1.02739561, 0, 0.546084344, 0)
-			obj2.Size = UDim2.new(0, 70, 0, 16)
-			obj2.ZIndex = 25
-			obj2.Name = [[color]]
-
-			--[UIStroke]--
-			local obj3 = Instance.new("UIStroke", obj2)
-			obj3.Color = Color3.new(0.203922, 0.203922, 0.203922)
-
-			--[UIGradient]--   
-			local obj4 = Instance.new("UIGradient", obj3)
-			obj4.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)), ColorSequenceKeypoint.new(1, Color3.new(0.705882, 0.705882, 0.705882))})
-
-			--[TextBox]--
-			local obj5 = Instance.new("TextBox", obj2)
-			obj5.BackgroundColor3 = Color3.new(1, 1, 1)
-			obj5.BackgroundTransparency = 1
-			obj5.BorderSizePixel = 0
-			obj5.Size = UDim2.new(1, 0, 1, 0)
-			obj5.ZIndex = 28
-			obj5.ClearTextOnFocus = CTOF
-			obj5.CursorPosition = -1
-			obj5.Font = Enum.Font.ArialBold
-			obj5.PlaceholderText = placeholder
-			obj5.Text = [[]]
-			obj5.TextColor3 = Color3.new(1, 1, 1)   
-			obj5.TextSize = 10
-			obj5.TextStrokeColor3 = Color3.new(0.639216, 0.639216, 0.639216)
-
-			if #obj5.Text <= 5 then
-				obj2:TweenSize(UDim2.new(0,#obj5.PlaceholderText*6,0,16),'Out','Quint',0,true);
-			else
-				obj2:TweenSize(UDim2.new(0,#obj5.PlaceholderText*6,0,16),'Out','Quint',0,true);
-
-			end
-			--[TextLabel]--
-			local obj6 = Instance.new("TextLabel", obj1)
-			obj6.BackgroundColor3 = Color3.new(0.772549, 0.772549, 0.772549)
-			obj6.BackgroundTransparency = 1
-			obj6.BorderSizePixel = 0
-			obj6.Position = UDim2.new(-0.00865958631, 0, 0.0133694736, 0)
-			obj6.Size = UDim2.new(0, 169, 0, 24)
-			obj6.ZIndex = 15
-			obj6.Font = Enum.Font.SourceSansBold
-			obj6.Text = Text
-			obj6.TextColor3 = Color3.new(0.772549, 0.772549, 0.772549)
-			obj6.TextSize = 14
-			obj6.TextXAlignment = Enum.TextXAlignment.Left  
-
-			local AC = function(PassBox)
-				PassBox.Text=colador(obj5.Text,Type)
-
-				if PassBox.Text == nil or PassBox.Text == '' then
-   
-					if #PassBox.Text <= 5 then
-						obj2:TweenSize(UDim2.new(0,#PassBox.PlaceholderText*10,0,16),'Out','Quint',0.4,true);
-					else
-						obj2:TweenSize(UDim2.new(0,#PassBox.PlaceholderText*6,0,16),'Out','Quint',0.4,true);
-
-					end
-
-				else
-					obj2:TweenSize(UDim2.new(0,#PassBox.Text*7,0,16),'Out','Quint',0.4,true);
-				end
-				if #PassBox.Text >= 21 then
-					PassBox.Text = string.sub(PassBox.Text,0,21)
-				end
-				spawn(
-					function()
-						pcall(function()
-							Action(obj5.Text)
-						end)  
-					end)
-			end
-			local text = ''
-			obj5.Changed:Connect(function()
-				if obj5.Text == nil or obj5.Text == ' ' or obj5.Text =='' then
-					obj2:TweenSize(UDim2.new(0,#obj5.PlaceholderText*6,0,16),'Out','Quint',0.4,true);
-					return
-				end
-				if text ~= obj5.Text then
-					text = obj5.Text
-					AC(obj5)
-				end
-			end)
-
-			SECTIONHOLDER.Size = UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 8) + UDim2.new(0,0,0,23)
-			_PARENT.Size = UDim2.new(_PARENT.Size.X.Scale, _PARENT.Size.X.Offset , 0 ,LIST.AbsoluteContentSize.Y + 15);
-
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-
-		end
- 
-		function inside:AddSlider(Text,Max,Min,def,Action)
-			Text = Text or 'Not Defined'
-			Max = Max or 100
-			Min =Min or Max/4
-			def = def or Max/2
-			local mouse = game.Players.LocalPlayer:GetMouse()
-			local SliderDef = math.clamp(def, Min, Max) or math.clamp(50, Min, Max)
-			local DefaultScale =  (SliderDef - Min) / (Max - Min)
-			Action = Action or function() end
-			local Value;
-
-			--[Slider]--
-			local obj1 = Instance.new("Frame")
-			obj1.BackgroundColor3 = Color3.new(0.117647, 0.117647, 0.113725)
-			obj1.BackgroundTransparency = 1
-			obj1.BorderSizePixel = 0
-			obj1.Position = UDim2.new(0.0435978472, 0, 0.255637407, 0)
-			obj1.Size = UDim2.new(0, 248, 0, 32)
-			obj1.ZIndex = 20
-			obj1.Name = [[Slider]]
-			obj1.Parent = HOLDER_2
-			--[TextLabel]--
-			local obj2 = Instance.new("TextLabel", obj1)
-			obj2.BackgroundColor3 = Color3.new(1, 1, 1)
-			obj2.BackgroundTransparency = 1
-			obj2.BorderSizePixel = 0
-			obj2.Position = UDim2.new(0.00500635942, 0, 0.0442914963, 0)
-			obj2.Size = UDim2.new(0, 197, 0, 10)
-			obj2.ZIndex = 21
-			obj2.Font = Enum.Font.SourceSansSemibold
-			obj2.Text = Text
-			obj2.TextColor3 = Color3.new(0.772549, 0.772549, 0.772549)
-			obj2.TextSize = 16
-			obj2.TextXAlignment = Enum.TextXAlignment.Left
-
-			--[sbt]--
-			local obj3 = Instance.new("TextButton", obj1)
-			obj3.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
-			obj3.BackgroundTransparency = 1
-			obj3.BorderSizePixel = 0
-			obj3.ClipsDescendants = true
-			obj3.Position = UDim2.new(0, 1, 0, 19)
-			obj3.Size = UDim2.new(0, 243, 0, 13)
-			obj3.ZIndex = 21
-			obj3.Font = Enum.Font.SourceSans
-			obj3.Text = [[]]
-			obj3.TextColor3 = Color3.new(0, 0, 0)
-			obj3.TextSize = 1
-			obj3.AutoButtonColor = false
-			obj3.Name = [[sbt]]
-
-			--[pcntage]--
-			local obj4 = Instance.new("TextBox")
-
-
-			obj4.Name = "pcntage"
-			obj4.Parent = obj1
-			obj4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			obj4.BackgroundTransparency = 1.000
-			obj4.BorderSizePixel = 0
-			obj4.Position = UDim2.new(0.79838711, 0, 0, 0)
-			obj4.Size = UDim2.new(0, 44, 0, 11)
-			obj4.ZIndex = 23
-			obj4.ClearTextOnFocus = false
-			obj4.Font = Enum.Font.SourceSansBold
-			obj4.PlaceholderColor3 = Color3.fromRGB(178, 178, 178)
-			obj4.Text = def
-			obj4.TextColor3 = Color3.fromRGB(90, 90, 90)
-			obj4.TextSize = 14.000
-			obj4.TextXAlignment = Enum.TextXAlignment.Right
-
-			--[HOLDER_3]--
-			local obj5 = Instance.new("Frame", obj1)
-			obj5.BackgroundColor3 = Color3.new(0.0980392, 0.0980392, 0.0980392)
-			obj5.BorderSizePixel = 0
-			obj5.Position = UDim2.new(-0.002,0,0.491,0)
-			obj5.Size = UDim2.new(0, 243, 0, 13)
-			obj5.ZIndex = 23
-			obj5.Name = [[HOLDER_3]]
-
-			--[SFrame]--
-			local obj6 = Instance.new("Frame", obj5)
-			obj6.BackgroundColor3 = Color3.new(1, 1, 1)
-			obj6.BorderSizePixel = 0
-			obj6.Position = UDim2.new(-0.001646191, 0, 0, 0)
-			obj6.Size = UDim2.fromScale(DefaultScale,1)
-			obj6.ZIndex = 23
-			obj6.Name = [[SFrame]]
-
-			--[UIGradient]--
-			local obj7 = Instance.new("UIGradient", obj6)
-			obj7.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(0.345098, 0.509804, 0.752941)), ColorSequenceKeypoint.new(1, Color3.new(0.270588, 0.4, 0.592157))})
-
-			--[UIStroke]--
-			local obj8 = Instance.new("UIStroke", obj5)
-			obj8.Color = Color3.new(0.203922, 0.203922, 0.203922)
-
-			--[UIGradient]--
-			local obj9 = Instance.new("UIGradient", obj8)
-			obj9.Color = ColorSequence.new({ColorSequenceKeypoint.new(0, Color3.new(1, 1, 1)), ColorSequenceKeypoint.new(1, Color3.new(0.533333, 0.533333, 0.533333))})
-
-			local st = def or Max/2
-			obj4.FocusLost:Connect(function(n)
-				if n then
-					if obj4.Text == '' or obj4.Text == ' ' or obj4.Text:find(' ') or obj4.Text == nil then
-						Value = tonumber(obj4.Text)
-						obj4.Text = st
-						local SliderDef = math.clamp(tonumber(obj4.Text), Min, Max) or math.clamp(50, Min, Max)
-						local DefaultScale =  (SliderDef - Min) / (Max - Min)
-						obj6.Size = UDim2.fromScale(DefaultScale,1)
-						pcall(function()
-							Action(Value)
-						end)
-						return
-					end
-					if tonumber(obj4.Text) > Max then
-						obj4.Text = Max
-						st = obj4.Text
-
-						Value = tonumber(obj4.Text)
-						local SliderDef = math.clamp(tonumber(obj4.Text), Min, Max) or math.clamp(50, Min, Max)
-						local DefaultScale =  (SliderDef - Min) / (Max - Min)
-						obj6.Size = UDim2.fromScale(DefaultScale,1)
-						pcall(function()
-							Action(Value)
-						end)
-						return
-					end
-					if tonumber(obj4.Text) < Min then
-						obj4.Text = Min
-						st = obj4.Text
-
-						Value = tonumber(obj4.Text)
-						local SliderDef = math.clamp(tonumber(obj4.Text), Min, Max) or math.clamp(50, Min, Max)
-						local DefaultScale =  (SliderDef - Min) / (Max - Min)
-						obj6.Size = UDim2.fromScale(DefaultScale,1)
-						pcall(function()
-							Action(Value)
-						end)
-						return
-					end
-					st = obj4.Text
-					Value = tonumber(obj4.Text)
-					local SliderDef = math.clamp(tonumber(obj4.Text), Min, Max) or math.clamp(50, Min, Max)
-					local DefaultScale =  (SliderDef - Min) / (Max - Min)
-					obj6.Size = UDim2.fromScale(DefaultScale,1)
-					pcall(function()
-						Action(Value)
-					end)
-				else
-					obj4.Text = st 
-					Value = tonumber(obj4.Text)
-					local SliderDef = math.clamp(tonumber(obj4.Text), Min, Max) or math.clamp(50, Min, Max)
-					local DefaultScale =  (SliderDef - Min) / (Max - Min)
-					obj6.Size = UDim2.fromScale(DefaultScale,1)
-					return
-				end
-			end)
-			obj4.Changed:Connect(function()
-				if #obj4.Text > 7 then
-					obj4.Text= st 
-					Value = tonumber(obj4.Text)
-					local SliderDef = math.clamp(tonumber(obj4.Text), Min, Max) or math.clamp(50, Min, Max)
-					local DefaultScale =  (SliderDef - Min) / (Max - Min)
-					obj6.Size = UDim2.fromScale(DefaultScale,1)
-					return
-				end
-			end)
-			obj3.MouseButton1Down:Connect(function()
-				TweenService:Create(obj8 , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {Color = Color3.fromRGB(115, 115, 115)}):Play()
-				obj4.TextXAlignment = Enum.TextXAlignment.Right
-
-				Value = ((((tonumber(Max) - tonumber(Min)) / 244) * obj6.AbsoluteSize.X) + tonumber(Min)) or 0
-				Value = (Value)
-				TweenService:Create(obj4, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(255, 255, 255)}):Play()
-
-				obj6.Size = UDim2.new(0, math.clamp(mouse.X - obj6.AbsolutePosition.X, 0, 244), 0, 13)
-				moveconnection = mouse.Move:Connect(function()
-					obj4.Text = ('%0.2f'):format(Value)
-					Value = ((((tonumber(Max) - tonumber(Min)) / 244) * obj6.AbsoluteSize.X) + tonumber(Min))
-					Value = (Value)
-					pcall(function()
-						Action(Value)
-					end)
-					obj6.Size = UDim2.new(0, math.clamp(mouse.X - obj6.AbsolutePosition.X, 0, 244), 0, 13)
-				end)
-				releaseconnection = uis.InputEnded:Connect(function(Mouse)
-					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-						Value = ((((tonumber(Max) - tonumber(Min)) / 244) * obj6.AbsoluteSize.X) + tonumber(Min))
-						Value =(Value)
-						pcall(function()
-							Action(Value)
-						end)
-						obj6.Size = UDim2.new(0, math.clamp(mouse.X - obj6.AbsolutePosition.X, 0, 244), 0, 13)
-						moveconnection:Disconnect()
-						releaseconnection:Disconnect()
-					end
-				end)
-				obj4.Text = ('%0.2f'):format(Value)
-			end)
-
-			obj3.MouseButton1Up:Connect(function()
-				TweenService:Create(obj8 , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {Color = Color3.fromRGB(52, 52, 52)}):Play()
-				TweenService:Create(obj4, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(126, 126, 126)}):Play()
-			end)
-			obj3.MouseLeave:Connect(function()
-				TweenService:Create(obj4, TweenInfo.new(0.3, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextColor3 = Color3.fromRGB(126, 126, 126)}):Play()
-				TweenService:Create(obj8 , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {Color = Color3.fromRGB(52, 52, 52)}):Play()
-			end)
-			SECTIONHOLDER.Size = UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 8) + UDim2.new(0,0,0,23)
-			_PARENT.Size = UDim2.new(_PARENT.Size.X.Scale, _PARENT.Size.X.Offset , 0 ,LIST.AbsoluteContentSize.Y + 15);
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-
-		end
-
-		function inside:AddLabel(Text)
-			Text=Text or 'Not Defined'
-			local TextLabel = Instance.new("TextLabel")
-
-			TextLabel.Parent = HOLDER_2
-			TextLabel.AutomaticSize =Enum.AutomaticSize.Y
-
-			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 1.000
-			TextLabel.BorderSizePixel = 0
-			TextLabel.Position = UDim2.new(0.0329693519, 0, 0, 0)
-			TextLabel.Size = UDim2.new(0, 253, 0, 11)
-			TextLabel.ZIndex = 15
-			TextLabel.Font = Enum.Font.SourceSansSemibold
-			TextLabel.Text = Text
-			TextLabel.TextColor3 = Color3.fromRGB(197, 197, 197)
-			TextLabel.TextSize = 18.000
-			TextLabel.TextWrapped = true
-			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-			TextLabel.TextYAlignment = Enum.TextYAlignment.Top
+	parent.TopBar.TopBarClose.MouseButton1Click:Connect(function()
+		if closed == false then
+			closed = true
+			local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,-0.612, 0) })
+			local tw3 = twServ:Create(parent.TopBar.TopBarClose, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.916, 0,0.95, 0) })
+			local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,-0.173, 0) })
+			local twRotate = twServ:Create(parent.TopBar.TopBarClose.ImageLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Rotation = 180 })
+
+			tw:Play()
+			tw.Completed:Wait()
+			tw2:Play()
+			task.wait(0.1)
+			twRotate:Play()
+			tw3:Play()
 			
-			TextLabel.AutomaticSize = Enum.AutomaticSize.Y
+		elseif closed == true then
+			closed = false
+			local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.212, 0) })
+			local tw3 = twServ:Create(parent.TopBar.TopBarClose, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.916, 0,0.52, 0) })
+			local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.012, 0) })
+			local twRotate = twServ:Create(parent.TopBar.TopBarClose.ImageLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Rotation = 0 })
 
-
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
+			tw:Play()
+			tw.Completed:Wait()
+			tw2:Play()
+			task.wait(0.1)
+			twRotate:Play()
+			tw3:Play()
 		end
-		local function getsize(str)
-			local r = 0;
-			for i=1,#str do
-				r+=1
-			end
-			if r <= 5 then
-				if r == 1 then
-					return r * 50
-				end
-				if r ==2 then
-					return r * 25
-				end
-				if r ==3 then
-					return r * 16
-				end
-				if r == 4 then
-					return r * 12
-				end
-				if r == 5 then
-					return r * 10
-				end
-			end
-			return r * 7.5
-		end
-		function inside:AddToggle(Text,Enabled,keybind,Callback)
-			Callback = Callback or function() end
-			Text=Text or 'Not Defined'
-			local activated = Enabled or false;
-			local y = {};
-
-			local TemplateToggle = Instance.new("Frame")
-			local TextLabel = Instance.new("TextLabel")
-			local Interactive = Instance.new("TextButton")
-			local color = Instance.new("Frame")
-			local UIGradient = Instance.new("UIGradient");
-			local UIStroke = Instance.new('UIStroke');
-
-			UIStroke.Parent= color;
-			UIStroke.Color = Color3.fromRGB(52,52,52);
-			UIStroke.LineJoinMode = Enum.LineJoinMode.Round;
-			UIStroke.Thickness = 1;
-			UIStroke.Transparency = 0;
-			UIStroke.Name = 'UIStroke';
-
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(180, 180, 180))}
-			UIGradient.Parent = UIStroke
-
-			local function Update()
-				if activated == false then
-					TweenService:Create(color , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(84, 122, 181)}):Play()
-					TweenService:Create(TextLabel, tweenInfo, { TextColor3 = Color3.fromRGB(152, 152, 152) }):Play()
-					spawn(function()
-						pcall(function()
-							Callback(activated)
-						end)
-					end)
-					activated = true
-				elseif activated == true then
-					TweenService:Create(color , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(25,25,25)}):Play()
-					TweenService:Create(TextLabel, tweenInfo, { TextColor3 = Color3.fromRGB(84, 84, 84) }):Play()
-					spawn(function()
-						pcall(function()
-							Callback(activated)
-						end)
-					end)
-					activated = false
-				end
-			end
-
-			TemplateToggle.Name = "TemplateToggle"
-			TemplateToggle.Parent = HOLDER_2
-			TemplateToggle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TemplateToggle.BackgroundTransparency = 1.000
-			TemplateToggle.BorderSizePixel = 0
-			TemplateToggle.Position = UDim2.new(0.155858055, 0, 0.392140955, 0)
-			TemplateToggle.Size = UDim2.new(0, 239, 0, 22)
-			TemplateToggle.ZIndex = 14
-
-			TextLabel.Parent = TemplateToggle
-			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 1.000
-			TextLabel.BorderSizePixel = 0
-			TextLabel.Position = UDim2.new(0.0833906233, 0, 0.0133694736, 0)
-			TextLabel.Size = UDim2.new(0, 220, 0, 15)
-			TextLabel.ZIndex = 15
-			TextLabel.Font = Enum.Font.SourceSansBold
-			TextLabel.Text = Text
-			TextLabel.TextColor3 = Color3.fromRGB(84, 84, 84)
-			TextLabel.TextSize = 14.000
-			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-			Interactive.Name = "Interactive"
-			Interactive.Parent = TemplateToggle
-			Interactive.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Interactive.BackgroundTransparency = 1.000
-			Interactive.BorderSizePixel = 0
-			Interactive.Position = UDim2.new(-0.0240641702, 0, 0, 0)
-			Interactive.Size = UDim2.new(0, 246, 0, 18)
-			Interactive.ZIndex = 20
-			Interactive.Font = Enum.Font.SourceSans
-			Interactive.Text = ""
-			Interactive.TextColor3 = Color3.fromRGB(0, 0, 0)
-			Interactive.TextSize = 20.000
-
-			color.Name = "color"
-			color.Parent = TemplateToggle
-			color.AnchorPoint = Vector2.new(0.5, 0.5)
-			color.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			color.BorderSizePixel = 0
-			color.Position = UDim2.new(0.0192536544, 0, 0.386994779, 0)
-			color.Size = UDim2.new(0, 15, 0, 15)
-			color.ZIndex = 15
-
-			local KeyButton = Instance.new("TextButton")
-			local h5 = Instance.new("UICorner")
-
-
-			KeyButton.Name = "KeyButton"
-			KeyButton.Parent = TemplateToggle
-			KeyButton.AnchorPoint = Vector2.new(1, 0.5)
-			KeyButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			KeyButton.BorderSizePixel = 0
-			KeyButton.ClipsDescendants = true
-			KeyButton.Position = UDim2.new(1.00271928, 0, 0.366679788, 0)
-			KeyButton.Size = UDim2.new(0, 45, 0, 15)
-			KeyButton.ZIndex = 22
-			KeyButton.AutoButtonColor = false
-			KeyButton.Font = Enum.Font.ArialBold
-			if keybind then
-				KeyButton.Text = keybind.Name or '. . .'
-			else
-				KeyButton.Text ='. . .'
-			end
-			KeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-			KeyButton.TextSize = 10.000
-			KeyButton.TextStrokeColor3 = Color3.fromRGB(45, 45, 45)
-
-			h5.CornerRadius = UDim.new(0, 3)
-			h5.Name = "h5"
-			h5.Parent = KeyButton
-			KeyButton:TweenSize(UDim2.new(0,getsize(KeyButton.Text),0,15),'InOut','Quint',0.2,true)
-
-			if keybind then
-				local ischanging = false;
-				local KeyCode = keybind
-				game:GetService("UserInputService").InputBegan:connect(function(a, gp) 
-					if not gp then 
-						if (a.KeyCode.Name == KeyCode or a.KeyCode.Name == KeyCode.Name) and ischanging == false then 
-							pcall(function()
-								Update()
-							end)
-						end
-					end
-				end)
-
-				KeyButton.MouseButton1Click:connect(function() 
-					game.TweenService:Create(KeyButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-						BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-					}):Play()
-					KeyButton.Text = ". . ."
-					KeyButton:TweenSize(UDim2.new(0,getsize(KeyButton.Text),0,13), "InOut", "Quint", 0.2, true)
-
-					local v1, v2 = game:GetService('UserInputService').InputBegan:wait();
-					if v1.KeyCode.Name ~= "Unknown" then
-						ischanging = true
-						game.TweenService:Create(KeyButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-							BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-						}):Play()
-						KeyButton:TweenSize(UDim2.new(0,getsize( v1.KeyCode.Name),0,13), "Out", "Quint", 0.3, true)
-						KeyButton.Text = v1.KeyCode.Name
-						KeyCode = v1.KeyCode.Name;
-						wait(.2)
-						ischanging = false
-					end
-				end)
-			else
-				KeyButton.Visible = false
-			end
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-			function y:UpdateValue(val)
-				activated = val
-				Update(a)
-			end
-			Update(a)
-
-			Interactive.MouseButton1Click:Connect(Update)
-			Interactive.MouseEnter:Connect(function()
-				TweenService:Create(UIStroke , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {Color = Color3.fromRGB(115, 115, 115)}):Play()
-			end)
-			Interactive.MouseLeave:Connect(function()
-				TweenService:Create(UIStroke , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {Color = Color3.fromRGB(52, 52, 52)}):Play()
-
-			end)
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-			return y
-
-		end
-		function inside:AddSeparateBar()
-			local obj1 = Instance.new("Frame")
-			obj1.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
-			obj1.Position = UDim2.new(0.0159928761, 0, 0.491355002, 0)
-			obj1.Size = UDim2.new(0, 258, 0, 3)
-			obj1.ZIndex = 22
-			obj1.Parent = HOLDER_2
-			local obj2 = Instance.new("UICorner", obj1)
-			obj2.CornerRadius = UDim.new(1, 10)
-			SECTIONHOLDER.Size = UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 8) + UDim2.new(0,0,0,23)
-			_PARENT.Size = UDim2.new(_PARENT.Size.X.Scale, _PARENT.Size.X.Offset , 0 ,LIST.AbsoluteContentSize.Y + 15);
-
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-
-
-		end
-		function inside:AddColorPallete(Text,Color,Action)
-			Text = Text or 'Not defined'
-			Color = Color or Color3.fromRGB(255,255,255)
-			Action = Action or function() end
-			local SECTIONCOLOUR = Instance.new("Frame")
-			local CCCC3 = Instance.new("UICorner")
-
-			local OPENCLOSE = Instance.new("TextButton")
-			local UICorner = Instance.new("UICorner")
-			local ColourDisplay = Instance.new("ImageLabel")
-
-
-			SECTIONCOLOUR.Name = "SECTIONCOLOUR"
-			SECTIONCOLOUR.Parent = HOLDER_2
-			SECTIONCOLOUR.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			SECTIONCOLOUR.BorderSizePixel = 0
-			SECTIONCOLOUR.ClipsDescendants = true
-			SECTIONCOLOUR.Position = UDim2.new(0.0251945332, 0, 0.517914712, 0)
-			SECTIONCOLOUR.Size = UDim2.new(0, 258, 0, 22)
-			SECTIONCOLOUR.ZIndex = 22
-
-			CCCC3.CornerRadius = UDim.new(0, 6)
-			CCCC3.Name = "CCCC3"
-			CCCC3.Parent = SECTIONCOLOUR
-
-			OPENCLOSE.Name = "OPENCLOSE"
-			OPENCLOSE.Parent = SECTIONCOLOUR
-			OPENCLOSE.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
-			OPENCLOSE.BackgroundTransparency = 1.000
-			OPENCLOSE.BorderSizePixel = 0
-			OPENCLOSE.ClipsDescendants = true
-			OPENCLOSE.Position = UDim2.new(0, 7, 0, 2)
-			OPENCLOSE.Size = UDim2.new(0, 243, 0, 18)
-			OPENCLOSE.ZIndex = 23
-			OPENCLOSE.AutoButtonColor = false
-			OPENCLOSE.Font = Enum.Font.SourceSansSemibold
-			OPENCLOSE.Text = Text
-			OPENCLOSE.TextColor3 = Color3.fromRGB(255, 255, 255)
-			OPENCLOSE.TextSize = 16.000
-			OPENCLOSE.TextXAlignment = Enum.TextXAlignment.Left
-
-			UICorner.CornerRadius = UDim.new(0, 5)
-			UICorner.Parent = OPENCLOSE
-
-			ColourDisplay.Name = "ColourDisplay"
-			ColourDisplay.Parent = SECTIONCOLOUR
-			ColourDisplay.BackgroundColor3 = Color
-			ColourDisplay.BackgroundTransparency = 1.000
-			ColourDisplay.BorderSizePixel = 0
-			ColourDisplay.Position = UDim2.new(0, 220, 0, 4)
-			ColourDisplay.Size = UDim2.new(0, 29, 0, 14)
-			ColourDisplay.ZIndex = 23
-			ColourDisplay.Image = "rbxassetid://3570695787"
-			ColourDisplay.ScaleType = Enum.ScaleType.Slice
-			ColourDisplay.SliceCenter = Rect.new(100, 100, 100, 100)
-			ColourDisplay.SliceScale = 0.120
-			ColourDisplay.ImageColor3 = Color
-			SECTIONHOLDER.Size = UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 8) + UDim2.new(0,0,0,23)
-			_PARENT.Size = UDim2.new(_PARENT.Size.X.Scale, _PARENT.Size.X.Offset , 0 ,LIST.AbsoluteContentSize.Y + 15);
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-			AutoFit(SECTIONHOLDER,SECTION2UILIB)
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-
-			OPENCLOSE.MouseButton1Click:Connect(function()
-				OpenedColor(Text,ColourDisplay,Action,Color)
-			end)
-		end
-		function inside:AddKeyBind(Text,KeyCode,Action)
-			Text = Text or 'Not Defined'
-			KeyCode = KeyCode or Enum.KeyCode.RightAlt
-			Action = Action or function() end
-
-			local TemplateKBIND = Instance.new("Frame")
-			local TextLabel = Instance.new("TextLabel")
-			local Interactive = Instance.new("TextButton")
-			local KeyButton = Instance.new("TextButton")
-			local h5 = Instance.new("UICorner")
-
-			TemplateKBIND.Name = "TemplateKBIND"
-			TemplateKBIND.Parent = HOLDER_2
-			TemplateKBIND.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TemplateKBIND.BackgroundTransparency = 1.000
-			TemplateKBIND.BorderSizePixel = 0
-			TemplateKBIND.Position = UDim2.new(0.155858055, 0, 0.392140955, 0)
-			TemplateKBIND.Size = UDim2.new(0, 239, 0, 22)
-			TemplateKBIND.ZIndex = 14
-
-			TextLabel.Parent = TemplateKBIND
-			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 1.000
-			TextLabel.BorderSizePixel = 0
-			TextLabel.Position = UDim2.new(-0.0121270986, 0, 0.0133694736, 0)
-			TextLabel.Size = UDim2.new(0, 242, 0, 15)
-			TextLabel.ZIndex = 15
-			TextLabel.Font = Enum.Font.SourceSansBold
-			TextLabel.Text = Text
-			TextLabel.TextColor3 = Color3.fromRGB(197, 197, 197)
-			TextLabel.TextSize = 14.000
-			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-			Interactive.Name = "Interactive"
-			Interactive.Parent = TemplateKBIND
-			Interactive.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Interactive.BackgroundTransparency = 1.000
-			Interactive.BorderSizePixel = 0
-			Interactive.Position = UDim2.new(-0.0240641963, 0, 0, 0)
-			Interactive.Size = UDim2.new(0, 246, 0, 18)
-			Interactive.ZIndex = 20
-			Interactive.Font = Enum.Font.SourceSans
-			Interactive.Text = ""
-			Interactive.TextColor3 = Color3.fromRGB(0, 0, 0)
-			Interactive.TextSize = 20.000
-
-			KeyButton.Name = "KeyButton"
-			KeyButton.Parent = TemplateKBIND
-			KeyButton.AnchorPoint = Vector2.new(1, 0.5)
-			KeyButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			KeyButton.BorderSizePixel = 0
-			KeyButton.ClipsDescendants = true
-			KeyButton.Position = UDim2.new(1.00271928, 0, 0.366679788, 0)
-			KeyButton.Size = UDim2.new(0, 45, 0, 15)
-			KeyButton.ZIndex = 55
-			KeyButton.AutoButtonColor = false
-			KeyButton.Font = Enum.Font.ArialBold
-			KeyButton.Text = KeyCode.Name
-			KeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-			KeyButton.TextSize = 10.000
-			KeyButton.TextStrokeColor3 = Color3.fromRGB(45, 45, 45)
-
-			h5.CornerRadius = UDim.new(0, 3)
-			h5.Name = "h5"
-			h5.Parent = KeyButton
-
-
-			local ischanging = false;
-			game:GetService("UserInputService").InputBegan:connect(function(a, gp) 
-				if not gp then 
-					if (a.KeyCode.Name == KeyCode or a.KeyCode.Name == KeyCode.Name) and ischanging == false then 
-						pcall(function()
-							Action(a.KeyCode)
-						end)
-					end
-				end
-			end)
-
-			KeyButton.MouseButton1Click:connect(function() 
-				game.TweenService:Create(KeyButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-					BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-				}):Play()
-				KeyButton.Text = ". . ."
-				KeyButton:TweenSize(UDim2.new(0,getsize(KeyButton.Text),0,13), "InOut", "Quint", 0.2, true)
-
-				local v1, v2 = game:GetService('UserInputService').InputBegan:wait();
-				if v1.KeyCode.Name ~= "Unknown" then
-					ischanging = true
-					game.TweenService:Create(KeyButton, TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.In), {
-						BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-					}):Play()
-					KeyButton:TweenSize(UDim2.new(0,getsize( v1.KeyCode.Name),0,13), "Out", "Quint", 0.3, true)
-					KeyButton.Text = v1.KeyCode.Name
-					KeyCode = v1.KeyCode.Name;
-					wait(.2)
-					ischanging = false
-				end
-			end)
-
-			SECTIONHOLDER.Size = UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 8) + UDim2.new(0,0,0,23)
-			_PARENT.Size = UDim2.new(_PARENT.Size.X.Scale, _PARENT.Size.X.Offset , 0 ,LIST.AbsoluteContentSize.Y + 15);
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-		end
-		function inside:AddDropdown(Text,tbl,sel,Action)
-			Text = Text or 'Not Defined'
-			tbl = tbl or {'Not','Defined','Option'}
-			sel = sel or tbl[2] or '.-. bruh dude like fr, put one valid SIMPLE table.'
-			Action = Action or function() end
-
-			local K  =false
-			local s =nil
-
-
-			local DRPDOWN = Instance.new("Frame")
-			local UICorner = Instance.new("UICorner")
-			local Toggle = Instance.new("TextButton")
-			local _456fg = Instance.new("UICorner")
-			local TextLabel = Instance.new("TextLabel")
-			local TextLabel_2 = Instance.new("TextLabel")
-			local UIListLayout = Instance.new("UIListLayout")
-
-
-			--Properties:
-
-			DRPDOWN.Name = "DRPDOWN"
-			DRPDOWN.Parent = HOLDER_2
-			DRPDOWN.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
-			DRPDOWN.BorderSizePixel = 0
-			DRPDOWN.ClipsDescendants = true
-			DRPDOWN.Position = UDim2.new(0.0362365209, 0, 0.69055295, 0)
-			DRPDOWN.Size = UDim2.new(0, 252, 0, 25)
-			DRPDOWN.ZIndex = 27
-
-			UICorner.CornerRadius = UDim.new(0, 4)
-			UICorner.Parent = DRPDOWN
-
-			Toggle.Name = "Toggle"
-			Toggle.Parent = DRPDOWN
-			Toggle.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			Toggle.BorderSizePixel = 0
-			Toggle.ClipsDescendants = true
-			Toggle.Size = UDim2.new(0, 252, 0, 22)
-			Toggle.AutoButtonColor = false
-			Toggle.Font = Enum.Font.SourceSansSemibold
-			Toggle.Text = "  "
-			Toggle.TextColor3 = Color3.fromRGB(255, 255, 255)
-			Toggle.TextSize = 16.000
-
-			_456fg.CornerRadius = UDim.new(0, 4)
-			_456fg.Name = "456fg"
-			_456fg.Parent = Toggle
-
-			TextLabel.Parent = Toggle
-			TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
-			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 1.000
-			TextLabel.BorderSizePixel = 0
-			TextLabel.Position = UDim2.new(0.44808808, 0, 0.454545468, 0)
-			TextLabel.Size = UDim2.new(0, 208, 0, 18)
-			TextLabel.ZIndex = 30
-			TextLabel.Font = Enum.Font.SourceSansSemibold
-			TextLabel.Text = Text
-			TextLabel.TextColor3 = Color3.fromRGB(197, 197, 197)
-			TextLabel.TextSize = 16.000
-			TextLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-			TextLabel_2.Parent = Toggle
-			TextLabel_2.AnchorPoint = Vector2.new(0.5, 0.5)
-			TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel_2.BackgroundTransparency = 1.000
-			TextLabel_2.BorderSizePixel = 0
-			TextLabel_2.Position = UDim2.new(0.91685158, 0, 0.550000012, 0)
-			TextLabel_2.Size = UDim2.new(0, 14, 0, 14)
-			TextLabel_2.ZIndex = 30
-			TextLabel_2.Font = Enum.Font.SourceSansSemibold
-			TextLabel_2.Text = "+"
-			TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel_2.TextSize = 16.000
-			TextLabel_2.TextXAlignment = Enum.TextXAlignment.Right
-
-			UIListLayout.Parent = DRPDOWN
-			UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
-			UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-			UIListLayout.Padding = UDim.new(0, 3)
-
-			for i,v in pairs(tbl) do
-				local OPTION = Instance.new("TextButton")
-				local _456fg_2 = Instance.new("UICorner")
-				local TextLabel_3 = Instance.new("TextLabel")
-				OPTION.Name = "OPTION"
-				OPTION.Parent = DRPDOWN
-				OPTION.BackgroundColor3 = Color3.fromRGB(37, 37, 37)
-				OPTION.BorderSizePixel = 0
-				OPTION.ClipsDescendants = true
-				OPTION.Position = UDim2.new(0.055555556, 0, 0.378787875, 0)
-				OPTION.Size = UDim2.new(0, 233, 0, 16)
-				OPTION.ZIndex = 29
-				OPTION.AutoButtonColor = false
-				OPTION.Font = Enum.Font.SourceSansSemibold
-				OPTION.Text = ''
-				OPTION.TextColor3 = Color3.fromRGB(255, 255, 255)
-				OPTION.TextSize = 16.000
-
-				_456fg_2.CornerRadius = UDim.new(0, 4)
-				_456fg_2.Name = "456fg"
-				_456fg_2.Parent = OPTION
-
-				TextLabel_3.Parent = OPTION
-				TextLabel_3.AnchorPoint = Vector2.new(0.5, 0.5)
-				TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel_3.BackgroundTransparency = 1.000
-				TextLabel_3.BorderSizePixel = 0
-				TextLabel_3.Position = UDim2.new(0.501999259, 0, 0.441162109, 0)
-				TextLabel_3.Size = UDim2.new(0, 125, 0, 15)
-				TextLabel_3.Font = Enum.Font.SourceSansSemibold
-				TextLabel_3.Text = v
-				TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
-				TextLabel_3.TextSize = 15.000
-
-				if sel == v and v ~= Toggle.Text then
-					TweenService:Create(OPTION , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(28,28,28)}):Play()	
-					s = sel;
-				else
-					TweenService:Create(OPTION , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(37,37,37)}):Play()	
-				end
-
-				OPTION.MouseButton1Click:Connect(function()
-					for i,v in pairs(DRPDOWN:GetChildren()) do
-						if v:IsA("TextButton") and v ~= Toggle then
-							TweenService:Create(v , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(37,37,37)}):Play()	
-						end	
-					end
-					s=TextLabel_3.Text
-					TweenService:Create(OPTION , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.InOut), {BackgroundColor3 = Color3.fromRGB(28, 28, 28)}):Play()	
-					pcall(function()
-						Action(s)
-					end)
-				end)
-
-				SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-				task.wait()
-				_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-				task.wait()
-				UpdateMainSize(nil,true)
-
-				AddRipple(OPTION,TextLabel_3)
-			end
-
-			Toggle.MouseButton1Click:Connect(function()
-				if not K then
-					TweenService:Create(TextLabel_2 , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.Out), {Rotation = 180}):Play()	
-					DRPDOWN:TweenSize(UDim2.fromOffset(DRPDOWN.AbsoluteSize.X,  UIListLayout.AbsoluteContentSize.Y + 11),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true) 
-					K = not K
-				else
-					DRPDOWN:TweenSize(UDim2.new(0,DRPDOWN.AbsoluteSize.X,0, 25),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true) 
-					TweenService:Create(TextLabel_2 , TweenInfo.new(0.26, Enum.EasingStyle.Quad , Enum.EasingDirection.Out), {Rotation = 0}):Play()	
-					K = not K
-				end
-				wait(.3)
-				SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true) 
-				wait(.2)
-				_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0.2, true) 
-				wait(.2)
-				UpdateMainSize(nil,true)
-
-			end)
-
-
-
-
-			AddRipple(Toggle,TextLabel_2,Color3.fromRGB(180, 180, 180))
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-		end
-		function inside:AddButton(Text,Callback)
-			Callback = Callback or function() end
-			Text=Text or 'Not Defined'
-			local TemplateButton = Instance.new("Frame")
-			local TextLabel = Instance.new("TextLabel")
-			local Interactive = Instance.new("TextButton")
-			local UICorner = Instance.new("UICorner")
-
-			TemplateButton.Name = "TemplateButton"
-			TemplateButton.Parent = HOLDER_2
-			TemplateButton.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-			TemplateButton.BorderSizePixel = 0
-			TemplateButton.Position = UDim2.new(0.0430313908, 0, 0, 0)
-			TemplateButton.Size = UDim2.new(0, 243, 0, 21)
-			TemplateButton.ZIndex = 14
-			TemplateButton.ClipsDescendants = true
-			TextLabel.Parent = TemplateButton
-			TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			TextLabel.BackgroundTransparency = 1.000
-			TextLabel.BorderSizePixel = 0
-			TextLabel.Position = UDim2.new(0, 0, 0, 0)
-			TextLabel.Size = UDim2.new(0,243,0,19)
-			TextLabel.ZIndex = 15
-            TextLabel.Text=Text
-			TextLabel.Font = Enum.Font.SourceSansBold
-			TextLabel.TextColor3 = Color3.fromRGB(84, 84, 84)
-			TextLabel.TextSize = 17.000
-
-			Interactive.Name = "Interactive"
-			Interactive.Parent = TemplateButton
-			Interactive.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-			Interactive.BackgroundTransparency = 1.000
-			Interactive.BorderSizePixel = 0
-			Interactive.Position = UDim2.new(0, 0, 0, 0)
-			Interactive.Size = UDim2.new(0,243,0,21)
-			Interactive.ZIndex = 20
-			Interactive.Font = Enum.Font.SourceSans
-			Interactive.Text = ""
-			Interactive.TextColor3 = Color3.fromRGB(0, 0, 0)
-			Interactive.TextSize = 18.000
-			--Interactive.ClipsDescendants = true
-			UICorner.CornerRadius = UDim.new(0, 4)
-			UICorner.Parent = TemplateButton
-			local UIGradient = Instance.new("UIGradient");
-			local UIStroke = Instance.new('UIStroke');
-
-			UIStroke.Parent= TemplateButton;
-			UIStroke.Color = Color3.fromRGB(52,52,52);
-			UIStroke.LineJoinMode = Enum.LineJoinMode.Round;
-			UIStroke.Thickness = 1;
-			UIStroke.Transparency = 0;
-			UIStroke.Name = 'UIStroke';
-
-			UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(180, 180, 180))}
-			UIGradient.Parent = UIStroke
-
-			Interactive.MouseButton1Click:Connect(function()
-				spawn(function()
-					pcall(function()
-						Callback()
-					end)
-				end)
-			end)
-			SECTIONHOLDER.Size = UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 8) + UDim2.new(0,0,0,23)
-			_PARENT.Size = UDim2.new(_PARENT.Size.X.Scale, _PARENT.Size.X.Offset , 0 ,LIST.AbsoluteContentSize.Y + 15);
-			SECTIONHOLDER:TweenSize(UDim2.fromOffset(SECTIONHOLDER.AbsoluteSize.X,  SECTION2UILIB.AbsoluteContentSize.Y + 42),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			wait()
-			_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-			UpdateMainSize(nil,true)
-		end			
-		AutoFit(SECTIONHOLDER,SECTION2UILIB)
-		_PARENT:TweenSize(UDim2.fromOffset(_PARENT.AbsoluteSize.X,  LIST.AbsoluteContentSize.Y + 15),Enum.EasingDirection.Out, Enum.EasingStyle.Quad, 0, true) 
-
-		return inside
+	end)
+
+
+	function self:Open()
+		local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.212, 0) })
+		local tw3 = twServ:Create(parent.TopBar.TopBarClose, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.916, 0,0.52, 0) })
+		local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.012, 0) })
+		local twRotate = twServ:Create(parent.TopBar.TopBarClose.ImageLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Rotation = 0 })
+
+		tw:Play()
+		tw.Completed:Wait()
+		tw2:Play()
+		task.wait(0.1)
+		twRotate:Play()
+		tw3:Play()
 	end
 
-	return sec
+	function self:Close()
+		local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,-0.612, 0) })
+		local tw3 = twServ:Create(parent.TopBar.TopBarClose, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.916, 0,0.95, 0) })
+		local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,-0.173, 0) })
+		local twRotate = twServ:Create(parent.TopBar.TopBarClose.ImageLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Rotation = 180 })
+
+		tw:Play()
+		tw.Completed:Wait()
+		tw2:Play()
+		task.wait(0.1)
+		twRotate:Play()
+		tw3:Play()
+	end
+	function self:HideCloseButton()
+		DRR["1f"].Visible = false
+	end
+        function self:Hide()
+		DDR["1"].Enabled = false
+	end
+	function self:Show()
+		DDR["1"].Enabled = true
+        end
+	function self:Toggle()
+		if closed == false then
+			closed = true
+			local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,-0.612, 0) })
+			local tw3 = twServ:Create(parent.TopBar.TopBarClose, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.916, 0,0.95, 0) })
+			local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,-0.173, 0) })
+			local twRotate = twServ:Create(parent.TopBar.TopBarClose.ImageLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Rotation = 180 })
+
+			tw:Play()
+			tw.Completed:Wait()
+			tw2:Play()
+			tw2.Completed:Wait()
+			twRotate:Play()
+			tw3:Play()
+		elseif closed == true then
+			closed = false
+			local tw = twServ:Create(parent.MainBar, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.212, 0) })
+			local tw3 = twServ:Create(parent.TopBar.TopBarClose, TweenInfo.new(0.3, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Position = UDim2.new(0.916, 0,0.52, 0) })
+			local tw2 = twServ:Create(parent.TopBar, TweenInfo.new(0.2, Enum.EasingStyle.Linear, Enum.EasingDirection.Out), { Position = UDim2.new(0.23, 0,0.012, 0) })
+			local twRotate = twServ:Create(parent.TopBar.TopBarClose.ImageLabel, TweenInfo.new(0.4, Enum.EasingStyle.Quad, Enum.EasingDirection.In), { Rotation = 0 })
+
+			tw:Play()
+			tw.Completed:Wait()
+			tw2:Play()
+			tw2.Completed:Wait()
+			twRotate:Play()
+			tw3:Play()
+		end
+	end
+	function self:SetTheme(color, color2)
+		for i,v in pairs(parent:GetChildren()) do
+			if v:IsA("GuiObject") then
+				pcall(function()
+					if v.BackgroundColor3 == Color3.fromRGB(39, 44, 61) then
+						v.BackgroundColor3 = color
+						GlobalColor1 = color
+					elseif v.BackgroundColor3 == Color3.fromRGB(0, 255, 38) then
+						v.BackgroundColor3 = color2
+						GlobalColor2 = color2
+					end
+				end)
+			end
+		end
+	end
+
 end
 
-draggable(MAIN)
 
-library.GUI = EmuUI 
 
-return library
+
+
+
+
+
+
+
+
+function UILIB.newTab(name, img)	
+	local self = setmetatable({}, UILIB)
+
+	local newTab = parent.Folder.TabReserved:Clone()
+	newTab.Parent = parent.MainBar
+	newTab.Name = name
+	newTab.Visible = false
+
+	local newTabBtn = parent.Folder.TabButtonReserved:Clone()
+	newTabBtn.Parent = parent.TopBar.ScrollingFrame
+	newTabBtn.Name = name or "Tab"..#parent.MainBar:GetChildren() - 4
+	newTabBtn.Frame.TextLabel.Text = name
+	if img then
+		newTabBtn.ImageLabel.Image = img
+	else
+		newTabBtn.ImageLabel.Image = ""
+	end
+	newTabBtn.Visible = true
+
+	newTabBtn.MouseButton1Click:Connect(function()
+		for i,v in pairs(parent.TopBar.ScrollingFrame:GetChildren()) do
+			if v:IsA("ImageButton") then
+				local vTab = parent.MainBar:FindFirstChild(v.Name)
+				if v.Name ~= name then
+					local twBtn = twServ:Create(v, TweenInfo.new(0.2), { Transparency = 0.75})
+
+					twBtn:Play()
+
+					vTab.Visible = false
+				elseif v.Name == name then
+					vTab.Visible = true
+					local twBtn = twServ:Create(v, TweenInfo.new(0.2), { Transparency = 0 })
+
+					twBtn:Play()
+
+				end
+
+			end
+		end
+	end)
+
+	function self.newButton(name, desc, func)
+		local newbtn = reserved.Button:Clone()
+		newbtn.Parent = newTab
+		newbtn.Title.Text = name
+		newbtn.Description.Text = desc
+		newbtn.Visible = true
+		newbtn.Name = name
+
+		newbtn.MouseEnter:Connect(function()
+			local twBtn = twServ:Create(newbtn, TweenInfo.new(0.2), { Transparency = 0 })
+
+			twBtn:Play()
+		end)
+		newbtn.MouseLeave:Connect(function()
+			local twBtn = twServ:Create(newbtn, TweenInfo.new(0.2), { Transparency = 0.4 })
+
+			twBtn:Play()
+		end)
+		newbtn.MouseButton1Click:Connect(func)
+	end
+
+	function self.newLabel(text)
+		local newLabel = reserved.Label:Clone()
+		newLabel.Parent = newTab
+		newLabel.Visible = true
+		newLabel.Title.Text = text
+
+		return newLabel.Title
+	end
+
+        function self.editLabel(newLabel, text)
+		newLabel.Parent = newTab
+		newLabel.Visible = true
+		newLabel.Title.Text = text
+
+		return newLabel.Title
+        end
+
+	function self.newInput(name, desc, func)
+		local newInput = reserved.Textbox:Clone()
+		local textbox = newInput.TextboxBar.ActualTextbox
+
+		newInput.MouseEnter:Connect(function()
+			local twBtn = twServ:Create(newInput, TweenInfo.new(0.2), { Transparency = 0 })
+
+			twBtn:Play()
+		end)
+		newInput.MouseLeave:Connect(function()
+			local twBtn = twServ:Create(newInput, TweenInfo.new(0.2), { Transparency = 0.4 })
+
+			twBtn:Play()
+
+
+		end)
+
+		newInput.Visible = true
+		newInput.Parent = newTab
+		newInput.Title.Text = name
+		newInput.Description.Text = desc
+		newInput.Name = name
+
+		textbox.FocusLost:Connect(function()
+			func(textbox.Text)
+		end)
+
+	end
+
+	function self.newKeybind(name, desc, func)
+		local newKey = reserved.Keybind:Clone()
+
+
+		newKey.MouseEnter:Connect(function()
+			local twBtn = twServ:Create(newKey, TweenInfo.new(0.2), { Transparency = 0 })
+
+			twBtn:Play()
+		end)
+		newKey.MouseLeave:Connect(function()
+			local twBtn = twServ:Create(newKey, TweenInfo.new(0.2), { Transparency = 0.4 })
+
+			twBtn:Play()
+		end)
+		newKey.Parent = newTab
+		newKey.Title.Text = name
+		newKey.Name = name
+		newKey.Description.Text = desc
+		newKey.Visible =  true
+
+		local listening = false
+		local a
+
+		newKey.Bind.Button.MouseButton1Click:Connect(function()
+			listening = true
+
+
+			local function Loop()
+				if listening then
+					newKey.Bind.Button.Text = "."
+				end
+
+				task.wait(0.5)
+				if listening then
+					newKey.Bind.Button.Text = ".."
+				end
+				task.wait(0.5)
+				if listening then
+					newKey.Bind.Button.Text = "..."
+				end
+				task.wait(0.5)
+			end
+
+			task.spawn(function()
+				while listening do
+					Loop()
+				end
+			end)
+
+			-- Connect the InputBegan event
+			a = game:GetService("UserInputService").InputBegan:Connect(function(input, processed)
+				if input.UserInputType == Enum.UserInputType.Keyboard then
+					newKey.Bind.Button.Text = input.KeyCode.Name
+					listening = false
+					a:Disconnect()
+					func(input)
+				elseif input.UserInputType == Enum.UserInputType.MouseButton1 or
+					input.UserInputType == Enum.UserInputType.MouseButton2 or
+					input.UserInputType == Enum.UserInputType.MouseButton3 then
+					newKey.Bind.Button.Text = input.UserInputType.Name
+					listening = false
+					a:Disconnect()
+					func(input)
+				end
+			end)
+		end)
+	end
+
+
+	function self.newSlider(name, desc, max, manageSlider, func)
+		local newSlider = reserved.Slider:Clone()
+
+		newSlider.MouseEnter:Connect(function()
+			local twBtn = twServ:Create(newSlider, TweenInfo.new(0.2), { Transparency = 0 })
+
+			twBtn:Play()
+		end)
+		newSlider.MouseLeave:Connect(function()
+			local twBtn = twServ:Create(newSlider, TweenInfo.new(0.2), { Transparency = 0.4 })
+
+			twBtn:Play()
+		end)
+		newSlider.Visible = true
+		newSlider.Name = name
+		newSlider.Parent = newTab
+		newSlider.Title.Text = name
+		newSlider.Description.Text = desc
+
+		local Mouse = game.Players.LocalPlayer:GetMouse()
+		local tweenServ = twServ
+
+		local Trigger = newSlider.ActualSlider.Trigger
+		local Label = newSlider.ActualSlider.Title
+		local Fill = newSlider.ActualSlider.Fill
+		local Parent = newSlider.ActualSlider
+
+		local perc
+		local Percent
+		local MouseDown = false
+		local delayTw = 0.3
+
+		local function Update()
+			MouseDown = true
+			repeat
+				task.wait()
+				Percent = math.clamp((Mouse.X - Parent.AbsolutePosition.X) / Parent.AbsoluteSize.X, 0, 1)
+				perc = math.round(Percent * max)
+				if manageSlider == false then
+					Label.Text = perc
+					func(perc)
+				elseif manageSlider == true then
+					Label.Text = perc
+					func(perc, Label)
+				end
+				local tween = tweenServ:Create(Fill, TweenInfo.new(delayTw, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), { Size = UDim2.fromScale(Percent, 1) })
+				tween:Play()
+			until MouseDown == false
+		end
+
+		Trigger.MouseButton1Down:Connect(Update)
+
+		UIS.InputEnded:Connect(function(input)
+			if input.UserInputType ==  Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				MouseDown = false
+			end
+		end)
+
+	end
+	
+	function self.newToggle(title, desc, toggle, func)
+		local realToggle = toggle
+		local newToggle = reserved.Toggle:Clone()
+		newToggle.Parent = newTab
+		newToggle.Name = title
+		newToggle.Visible = true
+		newToggle.Title.Text = title
+		newToggle.Description.Text = desc
+		
+		
+		newToggle.MouseEnter:Connect(function()
+			local twBtn = twServ:Create(newToggle, TweenInfo.new(0.2), { Transparency = 0 })
+
+			twBtn:Play()
+		end)
+		newToggle.MouseLeave:Connect(function()
+			local twBtn = twServ:Create(newToggle, TweenInfo.new(0.2), { Transparency = 0.4 })
+
+			twBtn:Play()
+		end)
+		
+		
+		if realToggle == true then
+			newToggle.Label.BackgroundColor3 = GlobalColor2
+		elseif realToggle == false then
+			newToggle.Label.BackgroundColor3 = GlobalColor1
+		end
+		
+		
+		
+		newToggle.Label.Label.MouseButton1Click:Connect(function()
+			
+			if realToggle == true then
+				realToggle = false
+				local twColorOn = twServ:Create(newToggle.Label, TweenInfo.new(0.2), { BackgroundColor3 = GlobalColor1 })
+				twColorOn:Play()
+				
+				func(realToggle)
+			elseif realToggle == false then
+				realToggle = true
+				local twColorOn = twServ:Create(newToggle.Label, TweenInfo.new(0.2), { BackgroundColor3 = GlobalColor2 })
+				twColorOn:Play()
+				
+				func(realToggle)
+			end
+		end)
+		
+	end
+	
+	function self.newDropdown(name, desc, listTable, func)
+		local newdd = reserved.Dropdown:Clone()
+		newdd.Visible = true
+		newdd.Parent = newTab
+		
+		newdd.Name = name
+		newdd.Title.Text = name
+		newdd.Description.Text = desc
+		
+		for i, list in ipairs(listTable) do
+			local newddbtn = reserved.DropdownButton:Clone()
+			newddbtn.Visible = true
+			newddbtn.Parent = newdd.Box.ScrollingFrame
+
+			newddbtn.Name = list
+			newddbtn.name.Text = list
+			task.spawn(function()
+				newddbtn.MouseButton1Click:Connect(function()
+					newdd.DropdownBar.Open.Text = list
+					local twPos = twServ:Create(newdd.Box, TweenInfo.new(0.15), {Size = UDim2.new(0.97, 0,0, 0)})
+					twPos:Play()
+					twPos.Completed:Wait()
+					newdd.Box.Visible = false
+					func(list)
+				end)
+			end)
+		end		
+		
+		newdd.DropdownBar.Trigger.MouseButton1Click:Connect(function()
+			
+			
+			if newdd.Box.Visible == false then
+				newdd.Box.Visible = true
+				local twPos = twServ:Create(newdd.Box, TweenInfo.new(0.15), {Size = UDim2.new(0.97, 0,1.696, 0)})
+				twPos:Play()
+			elseif newdd.Box.Visible == true then
+				local twPos = twServ:Create(newdd.Box, TweenInfo.new(0.15), {Size = UDim2.new(0.97, 0,0, 0)})
+				twPos:Play()
+				twPos.Completed:Wait()
+				newdd.Box.Visible = false
+			end
+		end)
+	end
+
+	return self
+end
+
+
+
+
+
+
+
+
+return UILIB
+
+end;
+};
+
+return require(DRR["93"]);
